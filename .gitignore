@@ -1,0 +1,18 @@
+# Editor backup #
+*~
+\#*#
+
+# Folders #
+auto/
+temp/
+
+# Compilation files #
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.idx
+*.log
+*.out
+*.ptc
+*.xml
