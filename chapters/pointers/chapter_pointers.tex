@@ -20,7 +20,7 @@ Há alguns detalhes importantes a serem ressaltados a respeito desses três repo
 
 \begin{enumerate}
 \item A memória principal (RAM), distintamente dos registradores e da cache, não se encontra no processador mas sim conectada a ele através do barramento de memória que, por sua vez, subdivide-se em dois: barramento de endereço e barramento de dados [\autoref{fig:memory_controller}].
-\item O gerenciamento da memória cache, mesmo que possível através de instruções como INVD e WBINVD na arquitetura x86, é e deve, por segurança, ser deixado ao encargo do próprio processador, salvo casos realmente justificáveis.
+\item O gerenciamento da memória cache, mesmo que possível através de instruções como INVD e WBINVD na arquitetura x86, é e deve, por segurança, ser deixado ao encargo do próprio processador, salvo em casos realmente justificáveis.
 \item Os dados de todos eles são obtidos por endereçamento, ou seja, por indexação, mas o que os torna diferentes, à visão do programador, é o fato de os registradores e a cache só serem acessados dessa forma pelo microcódigo da arquitetura, enquanto a memória principal pode o ser por endereçamento via código de máquina (programa residente na própria memória).
 \end{enumerate}
 
