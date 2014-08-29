@@ -5,6 +5,7 @@ PDFFILE=c_in_fork.pdf
 
 all: 
 	$(TEX) $(TEXFILE)
+	$(TEX) $(TEXFILE)
 
 view:
 	evince $(PDFFILE)
