@@ -1,29 +1,70 @@
 \chapterimage{chapter_pointers.jpg} % Chapter heading image
 
 \chapter{Vetores (Arrays)}
-Conceitos
+Os vetores (arrays), em C, são tipos de dados de alocação contíngua derivados dos tipos simples. Em outras palavras, são estruturas de dados homogêneas compostas de elementos de mesmo tipo e posicionados em sequência na memória. Segue exemplo de vetor com seis elementos:
 
-\begin{itemize}
-  \item item
-\end{itemize}
+\begin{center}
+  \begin{bytefield}[endianness=little,bitwidth=6em]{6}
+    \bitbox{1}{9} \bitbox{1}{20} \bitbox{1}{11}
+    \bitbox{1}{7} \bitbox{1}{43} \bitbox{1}{31}\\
+    \bitheader{0-5}
+  \end{bytefield}
+\end{center}
+\section{Trabalhando com Vetores}
+\subsection{Definindo Vetores}
 
-\section{Trabalhando com vetores}
-\subsection{Declarando vetores}
-\subsection{Inicializando vetores}
-\subsection{Acessando vetores}
+Ao se definir um vetor é necessário determinar o respectivo tamanho.
 
-\section{Vetor de caracteres}
+\begin{ccode}
+  int i[6];
+  char c[3];
+\end{ccode}
 
-\section{Aplicacoes com vetores}
-\subsection{Imprimir os elementos}
-\subsection{Soma dos elementos}
-\subsection{Reverter o vetor}
-\subsection{Ordenacao de vetor}
+O uso do operador de índice [] é que informa ao compilador que as variáveis i e c são do tipo vetor. Já o número entre os colchetes define a quantidade de elementos a serem alocados para o vetor em questão. No código acima, i é definido como um vetor de int com seis elementos e c um vetor de char com três elementos.
+
+\begin{center}
+  \begin{bytefield}[endianness=little,bitwidth=6em]{6}
+    i[6]\\
+    \bitbox{1}{-57} \bitbox{1}{3} \bitbox{1}{791431480}
+    \bitbox{1}{0} \bitbox{1}{32767} \bitbox{1}{0}\\
+    \bitheader{0-5}\\
+  \end{bytefield}
+  \begin{bytefield}[endianness=little,bitwidth=2em]{3}
+    c[3]\\
+    \bitbox{1}{0} \bitbox{1}{-10} \bitbox{1}{49}\\
+    \bitheader{0-2}
+  \end{bytefield}
+\end{center}
+
+Uma boa prática de programação é inicializr os vetores, assim como os tipos simples, pois, tanto em i[6] quanto em c[3], vê-se claramente que os elementos contêm valores aleatórios.
+
+\subsection{Declarando Vetores}
+
+Ao contrário do que se pensa comumente, vetores podem ser declarados sem especificação da quantidade de elementos.
+
+\begin{ccode}
+  extern int ext[];
+\end{ccode}
+
+\subsection{Inicializando Vetores}
+
+\begin{ccode}
+  static int stc[6];
+\end{ccode}
+
+\subsection{Acessando Vetores}
+
+\section{Vetor de Caracteres}
+
+\section{Usando Vetores}
+\subsection{Imprimir Elementos}
+\subsection{Somar Elementos}
+\subsection{Inverter o Vetor}
+\subsection{Ordenar o Vetor}
 
 \section{Vetores Multidimensionais}
 Conversao.
 
+\section{Vetores como Parâmetros}
+
 %------------------------------------------------
-
-
-

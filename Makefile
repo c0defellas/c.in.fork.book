@@ -1,16 +1,18 @@
-TEX = pdflatex -shell-escape
-BIN = *.pyg *.aux *.dvi *.log *.toc *.bbl *.blg *.bak *.ilg *.ind *.idx *.out *.bcf *.ptc *.pyg *run.xml
-TEXFILE=c_in_fork.tex
-PDFFILE=c_in_fork.pdf
+PROJECT = c_in_fork
+PDF = $(PROJECT).pdf
+TEX = $(PROJECT).tex
 
-all: 
-	$(TEX) $(TEXFILE)
-	$(TEX) $(TEXFILE)
+TEXCMD = pdflatex -shell-escape -file-line-error
+BIN = *.pyg *.aux *.dvi *.log *.toc *.bbl *.blg *.bak *.ilg *.ind *.idx *.out *.bcf *.ptc *.pyg *run.xml *.fdb_latexmk *.fls
 
-view:
-	evince $(PDFFILE)
+.PHONY: $(PDF)
+
+$(PDF): $(TEX)
+	latexmk -pdf -quiet -pdflatex="$(TEXCMD)" -use-make $(TEX)
 
 clean:
-	rm -f $(BIN)
+	rm -f $(PDF) $(BIN)
+	find . -name "*.log" -type f -delete
 
-
+view: $(PDF)
+	evince $(PDF)
