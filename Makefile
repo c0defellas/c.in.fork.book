@@ -14,6 +14,7 @@ $(PDF): $(TEX)
 clean:
 	@echo Cleaning
 	@find . -regextype posix-egrep -regex ".*\.($(BIN))$$" -type f -delete
+	@find . -name "auto" -type d -exec rm -rf {} +
 
 view: $(PDF)
 	@echo Viewing
