@@ -63,11 +63,13 @@
 \usepackage{makeidx} % Required to make an index
 \makeindex % Tells LaTeX to create the files required for indexing
 
+\usepackage{listings}
+
 \usepackage{minted}
-\definecolor{minted\_bg}{rgb}{0.95,0.95,0.95}
-\newminted{c}{linenos,bgcolor=minted\_bg,frame=single}
+\definecolor{minted_bg}{rgb}{0.95,0.95,0.95}
+\newminted{c}{linenos,bgcolor=minted_bg,frame=single}
 \newmintedfile[inputccode]{c}{
-  bgcolor=minted\_bg,
+  bgcolor=minted_bg,
   fontfamily=tt,
   linenos=true,
   numberblanklines=true,
