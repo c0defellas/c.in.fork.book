@@ -1,17 +1,48 @@
+%================================================
+% CAPÍTULO ARRAYS
+%================================================
+
 \chapterimage{chapter_pointers.jpg} % Chapter heading image
 
-\chapter{Vetores (Arrays)}
-Os vetores (arrays), em C, são tipos de dados de alocação contíngua derivados dos tipos simples. Em outras palavras, são estruturas de dados homogêneas compostas de elementos de mesmo tipo e posicionados em sequência na memória. Segue exemplo de vetor com seis elementos:
+\chapter{Arrays}
+Quem nunca precisou organizar dados semelhantes num único local? Eu sim, você não? Então quando você, por exemplo, escreve um texto, o que acha que está fazendo? \say{\textit{Organizando ideias?}}. Sim, também! Contudo, o que você está organizando materialmente são caracteres. Vejamos:
+
+\begin {center}
+  \begin{bytefield}[bitwidth=1em]{17}
+    \bitbox{17}{Autor presunçoso!}\\
+    \bitbox{1}{A} \bitbox{1}{u} \bitbox{1}{t} \bitbox{1}{o} \bitbox{1}{r} \bitbox{1}{ }
+    \bitbox{1}{p} \bitbox{1}{r} \bitbox{1}{e} \bitbox{1}{s} \bitbox{1}{u} \bitbox{1}{n}
+    \bitbox{1}{ç} \bitbox{1}{o} \bitbox{1}{s} \bitbox{1}{o} \bitbox{1}{!}
+  \end{bytefield}
+\end{center}
+
+A frase \textit{Autor presunçoso!} é a organização de dezessete caracteres um atrás do outro. Isso mesmo, dezessete, pois o espaço também é um dado. Nunca se esqueça que, quando tratamos dados, até um \say{0} ocupa espaço na memória do computador. Engenheiros, acalmem-se, não estou falando de estado negativo num barramento de dados. \textit{All right}?
+
+Segue outra organização de dados. Desta vez de inteiros que serão o resultado do próximo sorteio da mega-sena.
 
 \begin{center}
   \begin{bytefield}[endianness=little,bitwidth=6em]{6}
     \bitbox{1}{9} \bitbox{1}{20} \bitbox{1}{11}
     \bitbox{1}{7} \bitbox{1}{43} \bitbox{1}{31}\\
-    \bitheader{0-5}
+    % \bitheader{0-5}
   \end{bytefield}
 \end{center}
-\section{Trabalhando com Vetores}
-\subsection{Definindo Vetores}
+
+Ambos são exemplos de \textbf{arrays} (também conhecidos como \textit{vetores}) que, em C, são tipos de dados de alocação contíngua derivados dos tipos simples. Em outras palavras, são estruturas de dados homogêneas, compostas de elementos de mesmo tipo, e posicionados em sequência na memória.
+
+\begin{remark}
+Em algumas fontes esparsas em idioma português, você, leitor, encontrará referências a arrays como sendo \textit{\textbf{arranjos}}. Ressalte-se que um array, numa tradução mais fiel, é um \textit{\textbf{conjunto}} de dados. Já um arranjo:
+
+  \begin{figure}[!htp]
+    \centering
+    \includegraphics[scale=0.7, keepaspectratio=true]{arrays_arrange.jpg}
+    \caption{Array não é Arranjo}
+    \label{fig:arrays_arrange}
+  \end{figure}
+\end{remark}
+
+\section{Trabalhando com Arrays}
+\subsection{Definindo Arrays}
 
 Ao se definir um vetor é necessário determinar o respectivo tamanho.
 
@@ -36,9 +67,9 @@ O uso do operador de índice [] é que informa ao compilador que as variáveis i
   \end{bytefield}
 \end{center}
 
-Uma boa prática de programação é inicializr os vetores, assim como os tipos simples, pois, tanto em i[6] quanto em c[3], vê-se claramente que os elementos contêm valores aleatórios.
+Uma boa prática de programação é inicializar os vetores, assim como os tipos simples, pois, tanto em i[6] quanto em c[3], vê-se claramente que os elementos contêm valores aleatórios.
 
-\subsection{Declarando Vetores}
+\subsection{Declarando Arrays}
 
 Ao contrário do que se pensa comumente, vetores podem ser declarados sem especificação da quantidade de elementos.
 
@@ -46,25 +77,25 @@ Ao contrário do que se pensa comumente, vetores podem ser declarados sem especi
   extern int ext[];
 \end{ccode}
 
-\subsection{Inicializando Vetores}
+\subsection{Inicializando Arrays}
 
 \begin{ccode}
   static int stc[6];
 \end{ccode}
 
-\subsection{Acessando Vetores}
+\subsection{Acessando Arrays}
 
-\section{Vetor de Caracteres}
+\section{Array de Caracteres}
 
-\section{Usando Vetores}
+\section{Arrays na Vida Real?!}
 \subsection{Imprimir Elementos}
 \subsection{Somar Elementos}
-\subsection{Inverter o Vetor}
-\subsection{Ordenar o Vetor}
+\subsection{Inverter o Array}
+\subsection{Ordenar o Array}
 
-\section{Vetores Multidimensionais}
-Conversao.
+\section{Arrays como Parâmetros}
 
-\section{Vetores como Parâmetros}
+\section{Arrays Multidimensionais (Matrizes)}
+
 
 %------------------------------------------------
