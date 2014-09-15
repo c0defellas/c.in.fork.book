@@ -32,21 +32,36 @@ A seguir, vamos falar um pouco mais sobre algumas categorias de linguagens e sua
 \section{Linguagens de programação}
 
 \subsection{Assembly}
+
 É considerada uma linguagem de máquina. Suas instruções são o que há de mais próximo da linguagem da máquina mas ainda assim legível pelos humanos (a não ser que você seja o Neo da Matrix). Suas instruções estão intimamente relacionadas com algo chamado de "Conjunto de instruções" (Instruction Set Architecture, em inglês).
 
 \subsection{CLI}
+
 Apesar de não serem comumente encaradas como linguagens de programação, as "linguagens de linha de comando" (Command Line Interface< em inglês) são linguagens bastante utilizadas. Quer apostar?
 
 Quem já trabalhou com sistemas operacionais Unix, Linux e Windows com certeza já viu estas linguagens: Windows batch (aquela tela preta do command/cmd), Windows PowerShell (administradores de Windows Server conhecem bem), bash, sh, zsh, ksh (todas presente em sistemas Unix e Linux).
 
 \subsection{Linguagens compiladas}
+
 É aqui que o C cai! Uma linguagem compilada!
 "Compilada? Explica melhor.". Bom, elas passam por compiladores. "Não me diga!".
 Teoricamente, qualquer linguagem pode ser do tipo compilada (ou interpretada). A diferença é que uma linguagem que está sendo compilada é traduzida do seu código fonte para instruções de máquina quase que diretamente. E este é um assunto polêmico.
 
 A princípio, linguagens de baixo nível (mais próximas da máquina) são compiladas, pois se busca uma maior "eficiência". Como o código é traduzido completamente antes de ser exposto à máquina, não há necessidade de traduzir parte do código no momento execução. Por outro lado, se desejarmos executar este código em uma máquina que possui uma arquitetura diferente, teremos que realizar uma nova tradução (no nosso caso, uma nova compilação).
 
+Exemplos de linguagens compiladas: C, ALGOL, BASIC, C, C++, C#, Common Lisp, Delphi, Emacs Lisp, Erlang, Go, Haskell, Objective-C, Smalltalk, etc.
 
+\subsection{Linguagens interpretadas}
+
+Eis uns dos tipos mais conhecidos. Neste caso, a linguagem é interpretada a partir do seu código fonte por um agente ("a gente" não, agente) externo: o interpretador. Este agente lê o código fonte e, dependendo da arquitetura de computador no qual ele reside, faz uma tradução de um jeito ou de outro.
+
+A grande vantagem aqui é a "portabilidade". Seu código fonte executa, teoricamente, da mesma forma em máquinas diferentes. É uma vantagem muito boa, desde que você tenha um interpretador para aquela arquitetura. A desvantagem aqui é que temos uma camada "extra" de execução: o interpretador. Em ambientes de tamanho reduzido e performance limitada, isto pode ser um problema.
+
+Assim como mencionado anteriormente, nada impede que uma linguagem compilada tenha que passar por um interpretador antes e vice-versa.
+
+\begin{quotation}
+\textit{{\Large Linguagens compiladas e interpretadas são termos que separam apenas as linguagens comumente compiladas das que são comumente interpretadas	"}}
+\end{quotation}
 
 %------------------------------------------------
 
