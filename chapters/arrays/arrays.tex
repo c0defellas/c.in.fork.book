@@ -71,28 +71,28 @@ Uma boa prática de programação é inicializar os arrays, assim como os tipos 
 
 
 \subsection{Declarando Arrays}
-Faz bem relembrarmos que declarar não é o mesmo que inicializar, portanto, ao contrário do que se pensa comumente, arrays podem normalmente ser declarados. Para tanto, basta fazermos uso do modificador \textit{extern} já visto no item 3.3.
+Faz bem relembrarmos que declarar não é o mesmo que definir, portanto, ao contrário do que se pensa comumente, arrays podem normalmente ser declarados. Para tanto, basta fazermos uso do modificador \textit{extern} já visto no item 3.3.
 
-Forçando a quantidade de elementos.
+Forçando a quantidade de elementos \textbf{ext1[32]} ou não \textbf{ext2[]}.
 
 \textit{array.h}\\
 \begin{ccode}
 extern int ext1[32];
+extern int ext2[];
 \end{ccode}
-
-Ou não, deixando para a definição.
 
 \textit{main.c}\\
 \begin{ccode}
 #include ``array.h''
 ...
-extern int ext2[];
+int ext1[32];
+int ext2[32];
 ...
 \end{ccode}
 
 
 \subsection{Inicializando Arrays}
-Recordar é viver, portanto: \say{inicializar é atribuir valor no ato da declaração e/ou declaração}. No caso de arrays podemos inicializá-los de várias formas, vejamos.
+Recordar é viver, portanto: \say{inicializar é atribuir valor no ato da declaração}. No caso de arrays podemos inicializá-los de várias formas, vejamos.
 
 Inicializando todos os elementos um a um.
 
