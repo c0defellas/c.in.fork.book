@@ -16,7 +16,7 @@ Quem nunca precisou organizar dados semelhantes num único local? Eu sim, você 
   \end{bytefield}
 \end{center}
 
-A frase \textit{Autor presunçoso!} é a organização de dezessete caracteres um atrás do outro. Isso mesmo, dezessete, pois o espaço também é um dado. Nunca se esqueça que, quando tratamos dados, até um \say{0} ocupa espaço na memória do computador. Engenheiros, acalmem-se, não estou falando de estado negativo num barramento de dados. \textit{All right}?
+A frase \textit{Autor presunçoso!} é a organização de dezessete caracteres um atrás do outro. Isso mesmo, dezessete, pois o espaço também é um dado. Nunca se esqueça que, quando tratamos dados, até um \say{0} ocupa espaço na memória do computador.
 
 Segue outra organização de dados. Desta vez de inteiros que serão o resultado do próximo sorteio da mega-sena.
 
@@ -28,11 +28,10 @@ Segue outra organização de dados. Desta vez de inteiros que serão o resultado
   \end{bytefield}
 \end{center}
 
-Ambos são exemplos de \textbf{arrays} (também conhecidos como \textit{vetores}) que, em C, são tipos de dados de alocação contíngua derivados dos tipos simples. Em outras palavras, são estruturas de dados homogêneas, compostas de elementos de mesmo tipo, e posicionados em sequência na memória.
+Ambos são exemplos de \textbf{arrays} que, em C, são tipos de dados de alocação contíngua derivados dos tipos simples. Em outras palavras, são estruturas de dados homogêneas, compostas de elementos de mesmo tipo, e posicionados em sequência na memória. Arrays também são conhecidos como \textit{vetores}, quando a sequência dos dados é unidimensional (linear), e como \textit{matrizes}, quando essa sequência se dá multimensionalmente. Divagaremos a respeito mais a frente.
 
 \begin{remark}
-Em algumas fontes esparsas em idioma português, você, leitor, encontrará referências a arrays como sendo \textit{\textbf{arranjos}}. Ressalte-se que um array, numa tradução mais fiel, é um \textit{\textbf{conjunto}} de dados. Já um arranjo:
-
+Em algumas fontes esparsas de idioma português, você, leitor, encontrará referências a arrays como sendo \textit{\textbf{arranjos}}. Ressaltamos que um array, numa tradução mais fiel, é um \textit{\textbf{conjunto}} de dados. Já um arranjo:
   \begin{figure}[!htp]
     \centering
     \includegraphics[scale=0.7, keepaspectratio=true]{arrays_arrange.jpg}
@@ -41,17 +40,18 @@ Em algumas fontes esparsas em idioma português, você, leitor, encontrará refe
   \end{figure}
 \end{remark}
 
+
 \section{Trabalhando com Arrays}
 \subsection{Definindo Arrays}
 
-Ao se definir um vetor é necessário determinar o respectivo tamanho.
+Ao definirmos um array é necessário determinarmos o respectivo tamanho.
 
 \begin{ccode}
   int i[6];
   char c[3];
 \end{ccode}
 
-O uso do operador de índice [] é que informa ao compilador que as variáveis i e c são do tipo vetor. Já o número entre os colchetes define a quantidade de elementos a serem alocados para o vetor em questão. No código acima, i é definido como um vetor de int com seis elementos e c um vetor de char com três elementos.
+O uso do operador de índice [] é que informa ao compilador que as variáveis \textbf{i} e \textbf{c} são do tipo array. Já o número entre os colchetes define a quantidade de elementos a serem alocados para o array em questão. No código acima, \textbf{i} é definido como um array de int com seis elementos e \textbf{c} um array de char com três elementos.
 
 \begin{center}
   \begin{bytefield}[endianness=little,bitwidth=6em]{6}
@@ -67,20 +67,83 @@ O uso do operador de índice [] é que informa ao compilador que as variáveis i
   \end{bytefield}
 \end{center}
 
-Uma boa prática de programação é inicializar os vetores, assim como os tipos simples, pois, tanto em i[6] quanto em c[3], vê-se claramente que os elementos contêm valores aleatórios.
+Uma boa prática de programação é inicializar os arrays, assim como os tipos simples, pois, tanto em i[] quanto em c[], vemos claramente que os elementos contêm valores aleatórios. Isso se dá pelo lixo encontrado na área da memória usada por esses recém-definidos arrays num escopo local.
+
 
 \subsection{Declarando Arrays}
+Faz bem relembrarmos que declarar não é o mesmo que inicializar, portanto, ao contrário do que se pensa comumente, arrays podem normalmente ser declarados. Para tanto, basta fazermos uso do modificador \textit{extern} já visto no item 3.3.
 
-Ao contrário do que se pensa comumente, vetores podem ser declarados sem especificação da quantidade de elementos.
+Forçando a quantidade de elementos.
 
+\textit{array.h}\\
 \begin{ccode}
-  extern int ext[];
+extern int ext1[32];
 \end{ccode}
 
+Ou não, deixando para a definição.
+
+\textit{main.c}\\
+\begin{ccode}
+#include ``array.h''
+...
+extern int ext2[];
+...
+\end{ccode}
+
+
 \subsection{Inicializando Arrays}
+Recordar é viver, portanto: \say{inicializar é atribuir valor no ato da declaração e/ou declaração}. No caso de arrays podemos inicializá-los de várias formas, vejamos.
+
+Inicializando todos os elementos um a um.
 
 \begin{ccode}
-  static int stc[6];
+  int array[3] = {1, 5, 10};
+\end{ccode}
+
+Inicializando todos os elementos com zero.
+
+\begin{ccode}
+  int array[3] = {0};
+\end{ccode}
+
+Inicializando todos os elementos com zero, também.
+
+\begin{ccode}
+  int array[3] = {};
+\end{ccode}
+
+Inicializando o primeiro elemento com 5 e os demais com zero.
+
+\begin{ccode}
+  int array[3] = {5};
+\end{ccode}
+
+Quando um array é definido num escopo global ou com a classe de armazenamento \textit{static} e não há inicialização explícita, de acordo com o \textit{C Standard}, todos os elementos são inicializados com zero.
+
+Inicializando todos os elementos com zero por definiçao estática.
+
+\begin{ccode}
+  static int array[6];
+\end{ccode}
+
+Inicializando por escopo global.
+
+\begin{ccode}
+int array[6];    /* Os elementos de array são inicializados
+                    com zero, automaticamente */
+
+int main(void)
+{
+  return 0;
+}
+\end{ccode}
+
+\subsection{Atribuindo Valores em Arrays}
+
+\begin{ccode}
+  int att[2];
+  att[0] = 10;
+  att[0] = 20;
 \end{ccode}
 
 \subsection{Acessando Arrays}
