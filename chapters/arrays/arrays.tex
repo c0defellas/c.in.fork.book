@@ -25,7 +25,7 @@ Imagine agora termos que, para cada caractere organizado, definir uma variável 
 
 Tal exemplo é deveras trabalho do capiroto, e só será utilizado na vida real se o programador tiver algum pacto com esse tinhoso. Para os que seguem o caminho da luz e dos ensinamentos jedi, há uma alternativa feliz.
 
-\textbf{Arrays}, em C, são tipos de dados de alocação contíngua derivados dos tipos simples. Em outras palavras, são estruturas de dados homogêneas, compostas de elementos de mesmo tipo, e posicionados em sequência na memória. Arrays também são conhecidos como \textit{vetores}, quando a sequência dos dados é unidimensional (linear), e como \textit{matrizes}, quando essa sequência se dá multimensionalmente. Divagaremos a respeito dos arrays do tipo matriz mais a frente, por enquanto a abordagem se dará com o conceito de array do tipo vetor. Abaixo, dois exemplos de arrays.
+\textbf{Arrays}, em C, são tipos de dados de alocação contíngua derivados dos tipos simples. Em outras palavras, são estruturas de dados homogêneas, compostas de elementos de mesmo tipo, e posicionados em sequência na memória. Arrays também são conhecidos como \textit{vetores}, quando a sequência dos dados é unidimensional (linear), e como \textit{matrizes}, quando essa sequência se dá multimensionalmente (linhas e colunas). Divagaremos a respeito dos arrays do tipo matriz mais a frente, abordando, por enquanto, o array do tipo vetor. Seguem dois exemplos de arrays.
 
 \begin {center}
   \begin{bytefield}[bitwidth=1em]{17}
@@ -61,7 +61,7 @@ Em algumas fontes esparsas de idioma português, você, leitor, encontrará refe
 \section{Trabalhando com Arrays}
 \subsection{Definindo Arrays}
 
-Ao definirmos um array é necessário determinarmos o respectivo tamanho.
+Ao definirmos um array, precisamos determinar a respectiva quantidade de elementos.
 
 \begin{ccode}
   int i[6];
@@ -69,7 +69,7 @@ Ao definirmos um array é necessário determinarmos o respectivo tamanho.
 \end{ccode}
 \\
 
-O uso do \textit{operador} de índice \textbf{[]} é que informa ao compilador que as variáveis \textbf{i} e \textbf{c} são do tipo array. Já o número entre os colchetes define a quantidade de elementos a serem alocados para o array em questão. No código acima, \textbf{i} é definido como um array de \textit{int} com seis elementos e \textbf{c} um array de \textit{char} com três elementos.
+Os colchetes, \textit{operadores} de índice \textbf{[]}, informam ao compilador que as variáveis \textbf{i} e \textbf{c} são do tipo array. Já o número presente entre esses operadores define a quantidade de elementos a serem alocados para o array em questão. No código acima, \textbf{i} é definido como um array de \textit{int} com seis elementos e \textbf{c} como um array de \textit{char} com três elementos.
 
 \begin{center}
   \begin{bytefield}[endianness=little,bitwidth=6em]{6}
@@ -85,8 +85,24 @@ O uso do \textit{operador} de índice \textbf{[]} é que informa ao compilador q
   \end{bytefield}
 \end{center}
 
-Uma boa prática de programação é inicializar os arrays, assim como os tipos simples, pois, tanto em i[] quanto em c[], vemos claramente que os elementos contêm valores aleatórios. Isso se dá pelo lixo encontrado na área da memória usada por esses recém-definidos arrays num escopo local.
+Uma boa prática de programação é inicializar os arrays, assim como nos tipos simples, pois, tanto em i[] quanto em c[], vemos claramente que os elementos têm valores aleatórios. Isso se dá pelo lixo encontrado na área da memória usada por esses recém-definidos arrays num escopo local.
 
+Arrays também podem ser definidos com a quantidade de elementos informada por outra variável, quando em escopo local. Mas atente sempre para inicializar a variável com a quantidade de elementos, se não comportamentos indesejados acontecerão, tais como pipocas voando na tela ou suco de tangerina escorrendo pelos cantos do monitor.
+
+\textit{Inicialize sempre a variável com a quantidade de elementos.}\\
+\begin{ccode}
+  int elements = 10;
+  ...
+  int i[elements];
+\end{ccode}
+\\
+
+\textit{Nunca esqueça de inicializar! NUNCA! Ou o bicho vem te pegar...}\\
+\begin{ccode}
+  int elements;
+  ...
+  int i[elements];
+\end{ccode}
 
 \subsection{Declarando Arrays}
 Faz bem relembrarmos que declarar não é o mesmo que definir, portanto, ao contrário do que se pensa comumente, arrays podem normalmente ser declarados. Para tanto, basta fazermos uso do modificador \textit{extern} já visto no item 3.3.
@@ -111,34 +127,43 @@ int ext2[32];
 
 
 \subsection{Inicializando Arrays}
-Recordar é viver, então cito-lhes o já discursado noutra parte desta obra: \say{inicializar é atribuir valor no ato da declaração}. No caso de arrays podemos inicializá-los de várias formas, vejamos.
+Recordar é viver, então viva mais uma vez: \say{inicializar é atribuir valor no ato da declaração}. No caso de arrays podemos inicializá-los de várias formas, vejamos.
+\\
 
-Inicializando todos os elementos um a um.
+Inicializando os elementos um a um.
 
 \begin{ccode}
-  int array[3] = {1, 5, 10};
+  int arr[3] = {1, 5, 10};
+\end{ccode}
+\\
+
+Inicializando os elementos um a um e forçando o compilador a reservar a quantidade de elementos informados na inicialização. Neste caso, o array é declarado e inicializado com 4 elementos.
+
+\begin{ccode}
+  int arr[] = {3, 2, 9, 1};
 \end{ccode}
 \\
 
 Inicializando todos os elementos com zero.
 
 \begin{ccode}
-  int array[3] = {0};
+  int arr[3] = {0};
 \end{ccode}
 \\
 
-Inicializando todos os elementos com zero (modo \say{preguiçoso suvina}, economiza um byte no código fonte a cada inicialização).
+Inicializando todos os elementos com zero (modo \say{preguiçoso suvina}, economiza um byte no código fonte por inicialização).
 
 \begin{ccode}
-  int array[3] = {};
+  int arr[3] = {};
 \end{ccode}
 \\
 
 Inicializando o primeiro elemento com 5 e os demais com zero.
 
 \begin{ccode}
-  int array[3] = {5};
+  int arr[3] = {5};
 \end{ccode}
+\\
 
 Quando um array é definido num escopo global \textit{e/ou} com a classe de armazenamento \textit{static} e não há inicialização explícita, de acordo com o \textit{C Standard}, todos os elementos são inicializados com zero.
 
@@ -152,27 +177,45 @@ Inicializando todos os elementos com zero por definiçao estática.
 Inicializando por escopo global.
 
 \begin{ccode}
-int array[6];    /* Os elementos de array são inicializados
-                    com zero, automaticamente. ``static'' implícito */
+int arr[6];    /* Os elementos de arr são inicializados
+                  com zero, automaticamente.
+                  ``static'' implícito */
 
 int main(void)
 {
   return 0;
 }
 \end{ccode}
+\\
+
+Há, também, umas inicializações curiosas que não geram erro na compilação mas tendem a causar dores de cabeça por sua desonesta representação.
+
+Abaixo dois arrays \say{fantasmas} de tamanho 0 que assombram até ateu. \textit{São fantasmas de variáveis do passado.}
+
+\begin{ccode}
+  int haunts_even_atheists1[] = {};
+  int haunts_even_atheists2[0] = {};
+\end{ccode}
+\\
+
+E há o array \say{sou brasileiro, não desisto nunca} que, tal qual o mote, não tem sentido na vida real. Esse array aloca apenas um elemento.
+
+\begin{ccode}
+  int brazilian_i[] = {1};
+  float brazilian_f[1] = {2};
+\end{ccode}
+\\
 
 \subsection{Atribuindo Valores em Arrays}
-
 Aqui falar sobre índice e demonstrar como fica o array na memória após a atribuição.
 
 \begin{ccode}
-  int att[2];
-  att[0] = 10;
-  att[1] = 20;
+  float att[2];
+  att[0] = 10.5;
+  att[1] = 25.3;
 \end{ccode}
 
 \subsection{Acessando Arrays}
-
 Discorrer brevemente sobre o acesso aos elementos de um array.
 
 \section{Array de Caracteres}
