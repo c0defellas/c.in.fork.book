@@ -58,7 +58,7 @@ Em algumas fontes esparsas em língua portuguesa, você, leitor, encontrará ref
   \end{figure}
 \end{remark}
 
-\section{Trabalhando com Arrays}
+\section{Usando Arrays}
 \subsection{Definindo Arrays}
 
 Ao definirmos um array, precisamos determinar a respectiva quantidade de elementos.
@@ -185,13 +185,21 @@ int main(void)
 \end{ccode}
 \\
 
-Há, também, umas inicializações curiosas que não geram erro na compilação mas nunca devem ser utilizados por suas desonesta representação, referência errônea aos valores atribuídos e total falta de sentido. Vejamos.
+Há, também, um array especial chamado array flexível. Ele só pode ser usado como último membro de uma estrutura que já contém pelo menos outro membro. Esse array se destina ao uso em estruturas com tamanho dinâmico que precisam ser compartilhadas integralmente e/ou acessadas linearmente.
 
-Abaixo dois arrays \say{fantasmas} de tamanho 0 que assombram até ateu. \textit{São fantasmas de variáveis do passado.}
+Veja abaixo exemplo de uso de um array flexível.
 
 \begin{ccode}
-  int haunts_even_atheists1[] = {};
-  int haunts_even_atheists2[0] = {};
+  struct str {
+      int body_len;
+      double body[];
+  };
+
+  int length = sizeof(double [10]);
+
+  struct str *s = malloc(sizeof(struct str) + length);
+  s->body_len = length;
+  ...
 \end{ccode}
 \\
 
@@ -204,7 +212,7 @@ E há o array \say{sou brasileiro, não desisto nunca} que, tal qual o mote, nã
 \\
 
 \subsection{Acessando Arrays}
-Os elementos dos arrays em C são acessados através dos índices 0 até a quantidade de elementos menos um (n-1), ou seja, num array com três elementos podemos acessá-los da seguinte maneira.
+Os elementos dos arrays em C são acessados através do índice 0 até a quantidade de elementos menos um (n-1), ou seja, num array com três elementos podemos acessá-los da seguinte maneira.
 
 \begin{ccode}
   float att[3] = {10.5, 25.3, 9.0};
@@ -215,9 +223,9 @@ Os elementos dos arrays em C são acessados através dos índices 0 até a quant
 \end{ccode}
 \\
 
-O código acima imprime na tela os valores dos elementos att[0] que é 10.5, att[1] com 25.3, e o att[2] respectivamente 9.0. O array como qualquer variável se encontra em locais específicos da memória. Antes e logo após seu último elemento há dados referentes a outros controles ou estruturas do próprio programa, por isso, acessá-lo, inadvertidamente, além da área definida na declaração/inicialização ocasionará seguramente comportamentos estranhos no software (bugs), até porque o compilador não te avisará de plano sobre limites extrapolados se você não estiver utilizando flags de warning (-Wall, por exemplo). Portanto, atenção redobrada e vergonha na cara.
+O código acima imprime na tela os valores dos elementos att[0] que é 10.5, att[1] com 25.3, e o att[2] respectivamente 9.0. O array como qualquer variável se encontra em locais específicos da memória. Antes do primeiro e logo após seu último elemento há dados referentes a outros controles ou estruturas do próprio programa, por isso, acessá-lo, inadvertidamente, além da área definida na declaração/inicialização ocasionará seguramente comportamentos inesperados no software (bugs), até porque o compilador não o avisará de plano sobre limites extrapolados se você não estiver utilizando flags de warning (-Warray-bounds, neste caso). Portanto, atenção redobrada e vergonha na cara.
 
-\subsection{Atribuindo Valores em Arrays}
+\subsubsection{Atribuindo Valores em Arrays}
 Até então vimos apenas como informar ao compilador o quanto de espaço precisamos que ele reserve na memória para nossos dados e como atribuir valores através da inicialização. \textit{Vamos bagunçar o coreto, então?}
 
 \say{Pensei que não iria falar nada sobre atribuição...}
