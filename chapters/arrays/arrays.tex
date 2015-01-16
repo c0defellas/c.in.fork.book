@@ -5,9 +5,9 @@
 \chapterimage{chapter_pointers.jpg} % Chapter heading image
 
 \chapter{Arrays}
-Quem nunca precisou organizar dados de tipo semelhante num único local? Eu sim, você não? Então quando você, por exemplo, escreve um texto, o que acha que está fazendo? \say{\textit{Organizando ideias?}}. Sim, também! Contudo, o que você está organizando materialmente são caracteres.
+Quem nunca precisou organizar dados de tipo semelhante num único local? Eu sim, você não? Então quando você, por exemplo, escreve um texto num pedaço de papel, o que acha que está fazendo? \say{\textit{Organizando ideias?}}. Sim, também! Contudo, o que você está organizando materialmente são caracteres.
 
-Imagine agora termos que, para cada caractere organizado, definir uma variável do tipo \textit{char} e atribuir-lhe o valor respectivo.
+Imagine agora que, usando o mesmo texto do papel no computador, para cada caractere organizado tenhamos que definir uma variável do tipo \textit{char} e atribuir-lhe o valor respectivo.
 
 \begin{ccode}
   char c1, c2, c3, c4, c5, c6, c7, c8, c9, c10,
@@ -23,7 +23,7 @@ Imagine agora termos que, para cada caractere organizado, definir uma variável 
 \end{ccode}
 \\
 
-Tal exemplo é deveras trabalho do capiroto, e só será utilizado na vida real se o programador tiver algum pacto com esse tinhoso. Para os que seguem o caminho da luz e dos ensinamentos jedi, há uma alternativa feliz.
+Tal exemplo é deveras trabalho do capiroto, e só será utilizado na vida real se o programador tiver algum pacto com esse tinhoso. Para os que seguem o caminho da luz e dos ensinamentos jedi há uma alternativa feliz.
 
 \textbf{Arrays}, em C, são tipos de dados de alocação contíngua derivados dos tipos simples. Em outras palavras, são estruturas de dados homogêneas, compostas de elementos de mesmo tipo, e posicionados em sequência na memória. Arrays também são conhecidos como \textit{vetores}, quando a sequência dos dados é unidimensional (linear), e como \textit{matrizes}, quando essa sequência se dá multimensionalmente (linhas e colunas). Divagaremos a respeito dos arrays do tipo matriz mais a frente, abordando, por enquanto, o array do tipo vetor. Seguem dois exemplos de arrays.
 
@@ -36,9 +36,9 @@ Tal exemplo é deveras trabalho do capiroto, e só será utilizado na vida real 
   \end{bytefield}
 \end{center}
 
-A frase \say{Autor presunçoso!} é a organização de dezessete caracteres um atrás do outro. Isso mesmo, dezessete, pois o espaço também é um dado. Nunca se esqueça que, quando tratamos dados, até um \say{0} ocupa espaço na memória do computador.
+Nesse primeiro, a frase \say{Autor presunçoso!} é a organização de dezessete caracteres um atrás do outro. Isso mesmo, dezessete, pois o espaço também é um dado. Nunca se esqueça que, quando tratamos dados, até um \say{0} ocupa espaço na memória do computador.
 
-Segue outra organização de dados. Desta vez de inteiros que serão o resultado do próximo sorteio da mega-sena. Duvida?
+Abaixo outra organização de dados. Desta vez de inteiros que serão o resultado do próximo sorteio da mega-sena. Duvida?
 
 \begin{center}
   \begin{bytefield}[endianness=little,bitwidth=6em]{6}
@@ -49,7 +49,7 @@ Segue outra organização de dados. Desta vez de inteiros que serão o resultado
 \end{center}
 
 \begin{remark}
-Em algumas fontes esparsas de idioma português, você, leitor, encontrará referências a arrays como sendo \textit{\textbf{arranjos}}. Ressaltamos que um array, numa tradução mais fiel, é um \textit{\textbf{conjunto}} de dados. Já um arranjo:
+Em algumas fontes esparsas em língua portuguesa, você, leitor, encontrará referências a arrays como sendo \textit{\textbf{arranjos}}. Ressaltamos que um array, numa tradução mais fiel, é um \textit{\textbf{conjunto}} de dados. Já um arranjo:
   \begin{figure}[!htp]
     \centering
     \includegraphics[scale=0.8, keepaspectratio=true]{arrays_arrange.jpg}
@@ -97,7 +97,7 @@ Arrays também podem ser definidos com a quantidade de elementos informada por o
 \end{ccode}
 \\
 
-\textit{Nunca esqueça de inicializar! NUNCA! Ou o bicho vem te pegar...}\\
+\textit{Nunca se esqueça de inicializar! NUNCA! Ou o bicho vem pegar você...}\\
 
 \subsection{Declarando Arrays}
 Faz bem relembrarmos que declarar não é o mesmo que definir, portanto, ao contrário do que se pensa comumente, arrays podem normalmente ser declarados. Para tanto, basta fazermos uso do modificador \textit{extern} já visto no item 3.3.
@@ -111,9 +111,11 @@ extern int ext2[];
 \end{ccode}
 \\
 
+E posteriormente definindo os mesmos arrays
+
 \textit{main.c - Definição}\\
 \begin{ccode}
-#include ``array.h''
+#include "array.h"
 ...
 int ext1[32];
 int ext2[32];
@@ -174,7 +176,7 @@ Inicializando por escopo global.
 \begin{ccode}
 int arr[6];    /* Os elementos de arr são inicializados
                   com zero, automaticamente.
-                  ``static'' implícito */
+                  "static" implícito */
 
 int main(void)
 {
@@ -201,17 +203,41 @@ E há o array \say{sou brasileiro, não desisto nunca} que, tal qual o mote, nã
 \end{ccode}
 \\
 
-\subsection{Atribuindo Valores em Arrays}
-Aqui falar sobre índice e demonstrar como fica o array na memória após a atribuição.
+\subsection{Acessando Arrays}
+Os elementos dos arrays em C são acessados através dos índices 0 até a quantidade de elementos menos um (n-1), ou seja, num array com três elementos podemos acessá-los da seguinte maneira.
 
 \begin{ccode}
-  float att[2];
-  att[0] = 10.5;
-  att[1] = 25.3;
-\end{ccode}
+  float att[3] = {10.5, 25.3, 9.0};
 
-\subsection{Acessando Arrays}
-Discorrer brevemente sobre o acesso aos elementos de um array.
+  printf("%f\n", att[0]);
+  printf("%f\n", att[1]);
+  printf("%f\n", att[2]);
+\end{ccode}
+\\
+
+O código acima imprime na tela os valores dos elementos att[0] que é 10.5, att[1] com 25.3, e o att[2] respectivamente 9.0. O array como qualquer variável se encontra em locais específicos da memória. Antes e logo após seu último elemento há dados referentes a outros controles ou estruturas do próprio programa, por isso, acessá-lo, inadvertidamente, além da área definida na declaração/inicialização ocasionará seguramente comportamentos estranhos no software (bugs), até porque o compilador não te avisará de plano sobre limites extrapolados se você não estiver utilizando flags de warning (-Wall, por exemplo). Portanto, atenção redobrada e vergonha na cara.
+
+\subsection{Atribuindo Valores em Arrays}
+Até então vimos apenas como informar ao compilador o quanto de espaço precisamos que ele reserve na memória para nossos dados e como atribuir valores através da inicialização. \textit{Vamos bagunçar o coreto, então?}
+
+\say{Pensei que não iria falar nada sobre atribuição...}
+
+Foi mesmo, bateu uma preguiça... /o{\textbackslash} A verdade é que discorrer brevemente o tema índices no tópico anterior, também conhecido como subscritores, foi crucial para mostrar a você, aspirante a programador C, que nesta linguagem, assim como grande parte das demais, o índice inicial de conjunto de dados é o 0 e não o 1. Sem esse conhecimento básico, talvez você já tivesse desistido de C e iniciado a programar em Pascal.
+
+\say{Mais falatório e não explicou como atribuo valores num array!}
+
+Nervosinho, você, hein? Calma que é simples.
+
+\begin{ccode}
+  float att[3];
+
+  att[0] = 1.1;
+  att[1] = 1.2;
+  att[2] = 1.3;
+\end{ccode}
+\\
+
+Pronto! Esse último código não inicializa o array deixando essa função para a atribuição singular de cada elemento. Doeu tanto esperar?
 
 \section{Array de Caracteres}
 
