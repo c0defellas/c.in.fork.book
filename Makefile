@@ -9,7 +9,7 @@ BIN	:= pyg|aux|dvi|log|toc|bbl|blg|bak|ilg|ind|idx|out|bcf|ptc|pyg|xml|fdb_latex
 
 $(PDF): $(TEX)
 	@echo Making
-	@latexmk -pdf -quiet -pdflatex="$(TEXCMD)" -use-make $(TEX)
+	@latexmk -pdf -pdflatex="$(TEXCMD)" -use-make $(TEX)
 
 clean:
 	@echo Cleaning
