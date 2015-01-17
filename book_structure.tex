@@ -67,10 +67,11 @@
 
 \usepackage{minted}
 \definecolor{minted_bg}{rgb}{0.95,0.95,0.95}
-\newminted{c}{bgcolor=minted_bg,frame=single}
+\newminted{c}{bgcolor=minted_bg,frame=single,fontsize=\footnotesize}
 \newmintedfile[inputccode]{c}{
   bgcolor=minted_bg,
   fontfamily=tt,
+  fontsize=\footnotesize,
   linenos=true,
   numberblanklines=true,
   numbersep=10pt,
@@ -85,7 +86,7 @@
   mathescape=false,
   samepage=false, %with this setting you can force the list to appear on the same page
   showspaces=false,
-  showtabs =false,
+  showtabs=false,
   texcl=false
 }
 
@@ -103,10 +104,12 @@
 \usepackage{tikz} % Required for drawing custom shapes
 
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
-\usepackage[utf8]{inputenc} % Required for including letters with accents
-\usepackage{dirtytalk}
-\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
-\usepackage[brazilian]{babel} % English language/hyphenation
+\usepackage[latin1,utf8]{inputenc} % Required for including letters with accents
+%\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{lmodern} % Fonts
+\usepackage[english,brazilian]{babel} % English language/hyphenation
+
+\usepackage{dirtytalk} % Quotation
 
 \usepackage{enumitem} % Customize lists
 \setlist{nolistsep} % Reduce spacing between bullet points and numbered lists
