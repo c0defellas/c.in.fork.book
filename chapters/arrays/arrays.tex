@@ -16,27 +16,26 @@ Imagine agora que, usando o mesmo texto do papel no computador, para cada caract
   c1 = 'A';
   c2 = 'u';
   c3 = 't';
-  c4 = 'o';
-  c5 = 'r';
-  c6 = ' ';
+  c4 = 'h';
+  c5 = 'o';
+  c6 = 'r';
+  c7 = ' ';
   ...
 \end{ccode}
-\\
 
 Tal exemplo é deveras trabalho do capiroto, e só será utilizado na vida real se o programador tiver algum pacto com esse tinhoso. Para os que seguem o caminho da luz e dos ensinamentos jedi há uma alternativa feliz.
 
 \textbf{Arrays}, em C, são tipos de dados de alocação contíngua derivados dos tipos simples. Em outras palavras, são estruturas de dados homogêneas, compostas de elementos de mesmo tipo, e posicionados em sequência na memória. Arrays também são conhecidos como \textit{vetores}, quando a sequência dos dados é unidimensional (linear), e como \textit{matrizes}, quando essa sequência se dá multimensionalmente (linhas e colunas). Divagaremos a respeito dos arrays do tipo matriz mais a frente, abordando, por enquanto, o array do tipo vetor. Seguem dois exemplos de arrays.
 
 \begin {center}
-  \begin{bytefield}[bitwidth=1em]{17}
-    \bitbox{17}{Autor presunçoso!}\\
-    \bitbox{1}{A} \bitbox{1}{u} \bitbox{1}{t} \bitbox{1}{o} \bitbox{1}{r} \bitbox{1}{ }
-    \bitbox{1}{p} \bitbox{1}{r} \bitbox{1}{e} \bitbox{1}{s} \bitbox{1}{u} \bitbox{1}{n}
-    \bitbox{1}{ç} \bitbox{1}{o} \bitbox{1}{s} \bitbox{1}{o} \bitbox{1}{!}
+  \begin{bytefield}[bitwidth=1em]{12}
+    \bitbox{12}{Smug Author!}\\
+    \bitbox{1}{S} \bitbox{1}{m} \bitbox{1}{u} \bitbox{1}{g} \bitbox{1}{ } \bitbox{1}{A}
+    \bitbox{1}{u} \bitbox{1}{t} \bitbox{1}{h} \bitbox{1}{o} \bitbox{1}{r} \bitbox{1}{!}
   \end{bytefield}
 \end{center}
 
-Nesse primeiro, a frase \say{Autor presunçoso!} é a organização de dezessete caracteres um atrás do outro. Isso mesmo, dezessete, pois o espaço também é um dado. Nunca se esqueça que, quando tratamos dados, até um \say{0} ocupa espaço na memória do computador.
+Nesse primeiro, a frase \say{Smug Author!} é a organização de doze caracteres um atrás do outro. Isso mesmo, doze, pois o espaço também é um dado. Nunca se esqueça que, quando tratamos dados, até um \say{0} ocupa espaço na memória do computador.
 
 Abaixo outra organização de dados. Desta vez de inteiros que serão o resultado do próximo sorteio da mega-sena. Duvida?
 
@@ -67,7 +66,6 @@ Ao definirmos um array, precisamos determinar a respectiva quantidade de element
   int i[6];
   char c[3];
 \end{ccode}
-\\
 
 Os colchetes, \textit{operadores} de índice \textbf{[]}, informam ao compilador que as variáveis \textbf{i} e \textbf{c} são do tipo array. Já o número presente entre esses operadores define a quantidade de elementos a serem alocados para o array em questão. No código acima, \textbf{i} é definido como um array de \textit{int} com seis elementos e \textbf{c} como um array de \textit{char} com três elementos.
 
@@ -95,7 +93,6 @@ Arrays também podem ser definidos com a quantidade de elementos informada por o
   ...
   int i[elements];
 \end{ccode}
-\\
 
 \textit{Nunca se esqueça de inicializar! NUNCA! Ou o bicho vem pegar você...}\\
 
@@ -109,7 +106,6 @@ Forçando a quantidade de elementos \textbf{ext1[32]} ou não \textbf{ext2[]}.
 extern int ext1[32];
 extern int ext2[];
 \end{ccode}
-\\
 
 E posteriormente definindo os mesmos arrays
 
@@ -122,45 +118,38 @@ int ext2[32];
 ...
 \end{ccode}
 
-
 \subsection{Inicializando Arrays}
 Recordar é viver, então viva mais uma vez: \say{inicializar é atribuir valor no ato da declaração}. No caso de arrays podemos inicializá-los de várias formas, vejamos.
-\\
 
 Inicializando os elementos um a um.
 
 \begin{ccode}
   int arr[3] = {1, 5, 10};
 \end{ccode}
-\\
 
 Inicializando os elementos um a um e forçando o compilador a reservar a quantidade de elementos informados na inicialização. Neste caso, o array é declarado e inicializado com 4 elementos.
 
 \begin{ccode}
   int arr[] = {3, 2, 9, 1};
 \end{ccode}
-\\
 
 Inicializando todos os elementos com zero.
 
 \begin{ccode}
   int arr[3] = {0};
 \end{ccode}
-\\
 
 Inicializando todos os elementos com zero (modo \say{preguiçoso suvina}, economiza um byte no código fonte por inicialização).
 
 \begin{ccode}
   int arr[3] = {};
 \end{ccode}
-\\
 
 Inicializando o primeiro elemento com 5 e os demais com zero.
 
 \begin{ccode}
   int arr[3] = {5};
 \end{ccode}
-\\
 
 Quando um array é definido num escopo global \textit{e/ou} com a classe de armazenamento \textit{static} e não há inicialização explícita, de acordo com o \textit{C Standard}, todos os elementos são inicializados com zero.
 
@@ -169,7 +158,6 @@ Inicializando todos os elementos com zero por definiçao estática.
 \begin{ccode}
   static int array[6];
 \end{ccode}
-\\
 
 Inicializando por escopo global.
 
@@ -183,7 +171,6 @@ Inicializando por escopo global.
     return 0;
   }
 \end{ccode}
-\\
 
 Há, também, um array especial chamado array flexível. Ele só pode ser usado como último membro de uma estrutura que já contém pelo menos outro membro. Esse array se destina ao uso em estruturas com tamanho dinâmico que precisam ser compartilhadas integralmente e/ou acessadas linearmente.
 
@@ -201,7 +188,6 @@ Veja abaixo exemplo de uso de um array flexível.
   s->body_len = length;
   ...
 \end{ccode}
-\\
 
 E há o array \say{sou brasileiro, não desisto nunca} que, tal qual o mote, não tem sentido na vida real. Esse array aloca apenas um elemento.
 
@@ -209,7 +195,6 @@ E há o array \say{sou brasileiro, não desisto nunca} que, tal qual o mote, nã
   int brazilian_i[] = {1};
   float brazilian_f[1] = {2};
 \end{ccode}
-\\
 
 \subsection{Acessando Arrays}
 Os elementos dos arrays em C são acessados através do índice 0 até a quantidade de elementos menos um (n-1), ou seja, num array com três elementos podemos acessá-los da seguinte maneira.
@@ -221,16 +206,15 @@ Os elementos dos arrays em C são acessados através do índice 0 até a quantid
   printf("%f\n", att[1]);
   printf("%f\n", att[2]);
 \end{ccode}
-\\
 
 O código acima imprime na tela os valores dos elementos att[0] que é 10.5, att[1] com 25.3, e o att[2] respectivamente 9.0. O array como qualquer variável se encontra em locais específicos da memória. Antes do primeiro e logo após seu último elemento há dados referentes a outros controles ou estruturas do próprio programa, por isso, acessá-lo, inadvertidamente, além da área definida na declaração/inicialização ocasionará seguramente comportamentos inesperados no software (bugs), até porque o compilador não o avisará de plano sobre limites extrapolados se você não estiver utilizando flags de warning (-Warray-bounds, neste caso). Portanto, atenção redobrada e vergonha na cara.
 
-\subsubsection{Atribuindo Valores em Arrays}
+\subsubsection{Atribuindo Valores a Arrays}
 Até então vimos apenas como informar ao compilador o quanto de espaço precisamos que ele reserve na memória para nossos dados e como atribuir valores através da inicialização. \textit{Vamos bagunçar o coreto, então?}
 
 \say{Pensei que não iria falar nada sobre atribuição...}
 
-Foi mesmo, bateu uma preguiça... /o{\textbackslash} A verdade é que discorrer brevemente o tema índices no tópico anterior, também conhecido como subscritores, foi crucial para mostrar a você, aspirante a programador C, que nesta linguagem, assim como grande parte das demais, o índice inicial de conjunto de dados é o 0 e não o 1. Sem esse conhecimento básico, talvez você já tivesse desistido de C e iniciado a programar em Pascal.
+Foi mesmo, bateu uma preguiça... /o{\textbackslash} A verdade é que discorrer brevemente o tema índices, também conhecido como subscritores, foi crucial para mostrar a você, aspirante a programador C, que nesta bela linguagem, assim como em grande parte das demais, o índice inicial de conjunto de dados é o 0 e não o 1. Sem esse conhecimento básico, talvez você já tivesse desistido de C e iniciado a programar em Pascal.
 
 \say{Mais falatório e não explicou como atribuo valores num array!}
 
@@ -243,11 +227,87 @@ Nervosinho, você, hein? Calma que é simples.
   att[1] = 1.2;
   att[2] = 1.3;
 \end{ccode}
-\\
 
 Pronto! Esse último código não inicializa o array deixando essa função para a atribuição singular de cada elemento. Doeu tanto esperar?
 
 \section{Array de Caracteres}
+Este tipo de array costuma causar arrepios, mas ele, na realidade, não tem nada de espetacular.
+
+\say{E que arrepios são esses?}
+
+Hmmm... Aquele arrepio de medo de coisas pipocarem na memória e possivelmente no fluxo do programa. Mas calma, antes de você, ávido e inquieto leitor, perguntar que pipocos são esses, respondo-lhe: portais do submundo por onde \textit{hackers} do mal vêm à superfície calma do seu mundo virtual, caro leitor. Mas isso é assunto para outro capítulo. Continuemos.
+
+\say{Maas...}
+
+Eu já disse rapá! Deixa de ser teimoso. Nunca ouviu falar que o apressado come cru? Vôte!
+
+Posso?
+
+\say{...}
+
+Vejamos. Um caractere tem uma representação visual cujo valor real está atrelado a um standard de caracteres. O mais comum desses standards o \textit{\textbf{ASCII} - American Standard Code for Information Interchange}.
+
+Um caractere na liguagem C deve ser representado entre duas aspas simples.
+
+\begin{ccode}
+  char c = 'A';
+\end{ccode}
+
+Acima vemos que \textit{c} é uma variável do tipo \textit{char} com o valor \textit{A}, que não é nada mais que:
+
+\begin{ccode}
+  char c = 65;
+\end{ccode}
+
+\say{Decimal sessenta e cinco? Como isso?}
+
+Eu também ficava confuso nos meus primórdios informáticos, mas basta você lembrar que, num computador, tudo são bits, estados 0 ou 1, que por sua vez, aglutinam-se matematicamente e corroboram, numa concepção mais chula, com a afirmação de que todos os dados são números. Reveja os primeiros capítulos se houver alguma dúvida.
+
+\say{-.-}
+
+Esse valor 65 é o correspondente decimal ao caractere ASCII \textit{A}. Já a conversão desse valor para a imagem bonita que conhecemos do caractere \textit{A} se dá pelo processo de renderização por hardware/software o qual se vale da própria tabela do standard envolvido. Mas voltemos ao C pois um só caractere ASCII não faz palavra (em outros standards a afirmação não é verdadeira).
+
+Poderemos esmiuçar melhor o que é um array de caracteres como exemplo abaixo.
+
+\begin{ccode}
+  char word1[] = {'A', 'u', 't', 'h', 'o', 'r', '\0'};
+\end{ccode}
+
+\say{Eu só não entendi a barra invertida e o zero como último elemento do array.}
+
+Esse elemento é necessário para construção de \textit{strings}. Em C não há um tipo para strings como em outras linguagens, isso se dá por conta da proximidade que C tem do hardware e pelo fato de na memória uma string não ser nada mais que uma sequência de números que representam singularmente um caractere em particular (ou parte dele em standards mais modernos). Assim esse caractere é conhecido como o caractere NUL (de valor 0) na tabela ASCII e significa, para qualquer código que interpreta strings, o fim do texto a ser interpretado.
+
+O código acima poderia ser reescrito das seguintes formas sem prejuízo da funcionalidade.
+
+\begin{ccode}
+  char word1[] = {'A', 'u', 't', 'h', 'o', 'r', NUL};
+\end{ccode}
+
+\begin{ccode}
+  char word1[] = {'A', 'u', 't', 'h', 'o', 'r', 0};
+\end{ccode}
+
+\say{Pelo que percebi, em C, usar um texto, melhor dizendo, uma string, é um baita pé no saco!}
+
+Sim se o leitor adotar o método acima como regra. Em realidade, há outra forma mais inteligente de se trabalhar com strings.
+
+\begin{ccode}
+  char word2[] = "Smug Author";
+\end{ccode}
+
+E aí o que achou? Basta inicializar o array com as famosas strings literais, usando-se aspas duplas e não mais a sintaxe de inicialização de elementos de arrays.
+
+\say{Gostei, mas você se esqueceu do caractere que finaliza a string.}
+
+Olha que leitor astuto! Está de parabéns, contudo enganado. E a culpa é minha, devo assumir, de tê-lo induzido até essa armadilha.
+
+Há dois aspectos interessantes quando utilizamos strings literais:
+\begin{enumerate}
+\item O próprio compilador armazenará corretamente o caractere NUL após a string.
+\item Dependendo da arquitetura o texto passa a ser armazenado no segmento \textit{read-only-data} e portanto não poderá ser alterado.
+\end{enumerate}
+
+No entanto, o segundo aspecto é capcioso uma vez que algumas arquiteturas podem não suportar segmentos \textit{read-only}, ou seja, permitirão a alteração dos elementos dos arrays iniciados com strings literais.
 
 \section{Arrays na Vida Real?!}
 \subsection{Imprimir Elementos}
@@ -255,7 +315,7 @@ Pronto! Esse último código não inicializa o array deixando essa função para
 \subsection{Inverter o Array}
 \subsection{Ordenar o Array}
 
-\section{Arrays como Parâmetros}
+\section{Arrays com Parâmetros}
 
 \section{Arrays Multidimensionais (Matrizes)}
 
