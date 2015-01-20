@@ -9,6 +9,8 @@ ser traduzido para o Inglês.
 computers.  It will be originally written in Portuguese but with plans to be
 translated into English.*
 
+*The pdf version is available already:*
+[c_in_fork.pdf](https://github.com/c0defellas/c.in.fork.book/raw/master/c_in_fork.pdf)
 
 Helping
 -------
@@ -41,12 +43,8 @@ Requirements
  texlive-bibtexextra`
 
 
-Commands
---------
-
-The pdf version is available already:
-[c_in_fork.pdf](https://github.com/c0defellas/c.in.fork.book/raw/master/c_in_fork.pdf)
-
+Compiling
+---------
 
 After editing the TeX files just compile the book as pdf:
 
