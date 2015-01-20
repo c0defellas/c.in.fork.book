@@ -29,11 +29,11 @@ Requirements
  * 80th column limit for concise reading. If you are using Emacs the unique
  mandatory config is:
 
-  ```
-  (add-hook 'LaTeX-mode-hook '(lambda ()
-			        (auto-fill-mode 1)
-			        (setq-default fill-column 79)))
-  ```
+   ```
+   (add-hook 'LaTeX-mode-hook '(lambda ()
+                                 (auto-fill-mode 1)
+                                 (setq-default fill-column 79)))
+   ```
 
 * Packages for Arch Linux:
 
