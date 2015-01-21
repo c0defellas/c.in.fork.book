@@ -30,7 +30,7 @@ Requirements
 
 * A TeX editor of your choice, then Emacs. Please, no editor wars here. I
   (Geyslan, one of the collaborators) grown up being teached that we have just
-  to desire the best for everyone. So I'm desiring it picking up Emacs for
+  to desire the best for everyone. So I'm desiring that picking up Emacs for
   you. Yes, I do know that Emacs isn't the only choice, but I know that it's
   the good and right one. Be advised. :P
 
