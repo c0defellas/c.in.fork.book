@@ -12,6 +12,7 @@ translated into English.*
 *The pdf version is available already:*
 [c_in_fork.pdf](https://github.com/c0defellas/c.in.fork.book/raw/master/c_in_fork.pdf)
 
+
 Helping
 -------
 
@@ -29,19 +30,19 @@ Requirements
 ------------
 
 * A TeX editor of your choice, then Emacs. Please, no editor wars here. I
-  (Geyslan, one of the collaborators) grown up being taught that we have just
-  to desire the best for everyone. So I'm desiring that picking up Emacs for
-  you. Yes, I do know that Emacs isn't the only choice, but I certainly know
-  that it's the good and right one. Be advised. :P
+(Geyslan, one of the collaborators) grown up being taught that we have just to
+desire the best for everyone. So I'm desiring that picking up Emacs for
+you. Yes, I do know that Emacs isn't the only choice, but I certainly know that
+it's the good and right one. Be advised. :P
 
- * 80th column limit for better reading. If you choosed right and are using
-   Emacs the unique mandatory config is:
+    * 80th column limit for easier reading. If you choosed right and are using
+    Emacs the unique mandatory config is:
 
-   ```
-   (add-hook 'LaTeX-mode-hook '(lambda ()
-                                 (auto-fill-mode 1)
-                                 (setq-default fill-column 79)))
-   ```
+        ```
+        (add-hook 'LaTeX-mode-hook '(lambda ()
+                                      (auto-fill-mode 1)
+                                      (setq-default fill-column 79)))
+        ```
 
 * Packages for Arch Linux:
 
@@ -52,7 +53,8 @@ Requirements
 Compiling
 ---------
 
-After editing the TeX files using your "best" editor just compile the book as pdf:
+After editing the TeX files using your "best" editor just compile the book as
+pdf:
 
 Compiling:
 
