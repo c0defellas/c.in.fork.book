@@ -29,10 +29,10 @@ Requirements
 ------------
 
 * A TeX editor of your choice, then Emacs. Please, no editor wars here. I
-  (Geyslan, one of the collaborators) grown up being teached that we have just
+  (Geyslan, one of the collaborators) grown up being taught that we have just
   to desire the best for everyone. So I'm desiring that picking up Emacs for
-  you. Yes, I do know that Emacs isn't the only choice, but I know that it's
-  the good and right one. Be advised. :P
+  you. Yes, I do know that Emacs isn't the only choice, but I certainly know
+  that it's the good and right one. Be advised. :P
 
  * 80th column limit for better reading. If you choosed right and are using
    Emacs the unique mandatory config is:
