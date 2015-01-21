@@ -16,20 +16,26 @@ Helping
 -------
 
 Você sabe algo sobre C? Já compilou um helloworld usando essa maravilhosa
-linguagem? Então seja um colaborador você também. Fork e clone este
-repositório já!
+linguagem? Se sim, seja você também um colaborador deste projeto. Fork e clone
+este repositório já e mão na massa!
 
-*Do you know something about C? Have you already compiled a helloworld using
-that gorgeous language? So be a helper you too. Fork and clone this repository
-right now!*
+*Do you know something about C? Have you ever compiled a hello world program
+using that gorgeous language? If the answer is positive, then you're invited to
+be a collaborator of this project. Get your hands dirty by cloning this
+repository right now!*
 
 
 Requirements
 ------------
 
-* A TeX editor of your choice (Emacs recommended).
- * 80th column limit for concise reading. If you are using Emacs the unique
- mandatory config is:
+* A TeX editor of your choice, then Emacs. Please, no editor wars here. I
+  (Geyslan, one of the collaborators) grown up being teached that we have just
+  to desire the best for everyone. So I'm desiring it picking up Emacs for
+  you. Yes, I do know that Emacs isn't the only choice, but I know that it's
+  the good and right one. Be advised. :P
+
+ * 80th column limit for better reading. If you choosed right and are using
+   Emacs the unique mandatory config is:
 
    ```
    (add-hook 'LaTeX-mode-hook '(lambda ()
@@ -46,7 +52,7 @@ Requirements
 Compiling
 ---------
 
-After editing the TeX files just compile the book as pdf:
+After editing the TeX files using your "best" editor just compile the book as pdf:
 
 Compiling:
 
