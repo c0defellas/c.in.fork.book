@@ -319,10 +319,11 @@ Posso?
 \say{...}
 
 Vejamos. Um caractere tem uma representação visual cujo valor real está
-atrelado a um standard de caracteres. O mais comum desses standards o
+atrelado a um standard de caracteres. O mais comum desses standards é o
 \textit{\textbf{ASCII} - American Standard Code for Information Interchange}.
 
-Um caractere na liguagem C deve ser representado entre duas aspas simples.
+Um caractere na liguagem C deve ser representado entre duas aspas simples e é
+chamado de \textit{one integer character constant}.
 
 \begin{ccode}
   char c = 'A';
@@ -335,13 +336,22 @@ Acima vemos que \textit{c} é uma variável do tipo \textit{char} com o valor
   char c = 65;
 \end{ccode}
 
-\say{Decimal sessenta e cinco? Como isso?}
+Há também o \textit{multibyte integer character constant}.
+
+\begin{ccode}
+  int micc = 'Hi';
+\end{ccode}
+
+Cá entre nós, se não for realmente necessário, evite o uso dele uma vez que seu
+valor dependerá da implementação definida (ambiente).
+
+\say{Ok, anotado. Mas decimal sessenta e cinco? Como isso?}
 
 Eu também ficava confuso nos meus primórdios informáticos, mas basta você
 lembrar que, num computador, tudo são bits, estados 0 ou 1, que por sua vez,
 aglutinam-se matematicamente e corroboram, numa concepção mais chula, com a
-afirmação de que todos os dados são números. Reveja os primeiros capítulos se
-houver alguma dúvida.
+afirmação de que todos os dados são números. A esse respeito reveja os
+primeiros capítulos, se houver alguma dúvida.
 
 \say{-.-}
 
@@ -349,16 +359,17 @@ Esse valor 65 é o correspondente decimal ao caractere ASCII \textit{A}. Já a
 conversão desse valor para a imagem bonita que conhecemos do caractere
 \textit{A} se dá pelo processo de renderização por hardware/software o qual se
 vale da própria tabela do standard envolvido. Mas voltemos ao C pois um só
-caractere ASCII não faz palavra (em outros standards a afirmação não é
-verdadeira).
+caractere ASCII não faz palavra (em outros standards um só caractere poderá sim
+significar palavra).
 
-Poderemos esmiuçar melhor o que é um array de caracteres como exemplo abaixo.
+Conseguiremos esmiuçar melhor o que é um array de caracteres com o exemplo
+abaixo.
 
 \begin{ccode}
   char word1[] = {'A', 'u', 't', 'h', 'o', 'r', '\0'};
 \end{ccode}
 
-\say{Eu só não entendi a barra invertida e o zero como último elemento do
+\say{Hmm... Eu só não entendi a barra invertida e o zero como último elemento do
   array.}
 
 Esse elemento é necessário para construção de \textit{strings}. Em C não há um
@@ -367,18 +378,26 @@ proximidade que C tem do hardware e pelo fato de na memória uma string não ser
 nada mais que uma sequência de números que representam singularmente um
 caractere em particular (ou parte dele em standards mais modernos). Assim esse
 caractere é conhecido como o caractere NUL (de valor 0) na tabela ASCII e
-significa, para qualquer código que interpreta strings, o fim do texto a ser
-interpretado.
+significa, para qualquer código que interpreta strings nesse padrão, o fim do
+texto a ser tratado.
 
-O código acima poderia ser reescrito das seguintes formas sem prejuízo da
+O código acima poderia ser reescrito da seguinte forma sem prejuízo da
 funcionalidade.
 
 \begin{ccode}
-  char word1[] = {'A', 'u', 't', 'h', 'o', 'r', NUL};
+  char word1[] = {'A', 'u', 't', 'h', 'o', 'r', 0};
 \end{ccode}
 
+Você verá em alguns códigos o uso de \textit{NUL} em vez do zero, mas não se
+engane assim como eu me enganei por muito tempo, NUL não é uma keyword da
+linguagem C, e sim apenas uma implementação acessória.
+
 \begin{ccode}
-  char word1[] = {'A', 'u', 't', 'h', 'o', 'r', 0};
+  #define NUL '\0'
+  /* or */
+  #define NUL 0
+  ...
+  char word1[] = {'A', 'u', 't', 'h', 'o', 'r', NUL};
 \end{ccode}
 
 \say{Pelo que percebi, em C, usar um texto, melhor dizendo, uma string, é um
@@ -391,11 +410,35 @@ mais inteligente de se trabalhar com strings.
   char word2[] = "Smug Author";
 \end{ccode}
 
-E aí o que achou? Basta inicializar o array com as famosas strings literais,
-usando-se aspas duplas e não mais a sintaxe de inicialização de elementos de
-arrays.
+Basta inicializar o array com as famosas strings literais usando aspas duplas e
+não mais a sintaxe de inicialização de elementos de arrays. E ainda dá para
+usar concatenação ou mais de uma linha, se for necessário.
 
-\say{Gostei, mas você se esqueceu do caractere que finaliza a string.}
+\begin{ccode}
+  char word2[] = "Smug " "Author";
+\end{ccode}
+
+\begin{ccode}
+  char word2[] = "Smug "
+                 "Author";
+\end{ccode}
+
+\begin{ccode}
+  char word2[] =
+  "Smug \
+  Author";
+\end{ccode}
+
+É saudável aconselhá-lo a nunca, NUNCA MESMO, definir o tamanho de um array
+quando for usá-lo como string. Deixe esse serviço para o compilador, usando
+apenas os colchetes vazios \textbf{[]}, que ele calculará com exatidão o tamanho
+a ser reservado na memória. Para mais sobre o tema, consultar a regra do CERT
+\href{https://www.securecoding.cert.org/confluence/display/seccode/STR11-C.+Do+not+specify+the+bound+of+a+character+array+initialized+with+a+string+literal}{ARR02-C}.
+
+E aí o que achou?
+
+\say{Gostei, mas você se esqueceu, nesses últimos exemplos, do caractere que
+  finaliza a string. O zero.}
 
 Olha que leitor astuto! Está de parabéns, contudo enganado. E a culpa é minha,
 devo assumir, de tê-lo induzido até essa armadilha.
@@ -403,14 +446,23 @@ devo assumir, de tê-lo induzido até essa armadilha.
 Há dois aspectos interessantes quando utilizamos strings literais:
 \begin{enumerate}
 \item O próprio compilador armazenará corretamente o caractere NUL após a
-  string.
-\item Dependendo da arquitetura o texto passa a ser armazenado no segmento
-  \textit{read-only-data} e portanto não poderá ser alterado.
+  string, e isso pode causar dores de cabeça aos desavisados que reservarem
+  buffers menores do que o necessário.
+\item Se estivermos usando \textit{ponteiros} o texto passa a ser armazenado no
+  segmento \textit{read-only-data}, portanto, dependendo da arquitetura, não
+  poderá ser alterado.
 \end{enumerate}
 
-No entanto, o segundo aspecto é capcioso uma vez que algumas arquiteturas podem
-não suportar segmentos \textit{read-only}, ou seja, permitirão a alteração dos
-elementos dos arrays iniciados com strings literais.
+Sem desmerecer o primeiro aspecto, ressalto que o segundo é bem capcioso, uma
+vez que algumas arquiteturas podem não suportar segmentos \textit{read-only},
+ou seja, permitirão a alteração dessa região da memória mesmo inicializada
+através de ponteiro. Em suma, mais um comportamento indefinido da linguagem.
+
+\say{Curioso... E o que são esses ponteiros mesmo?}
+
+Calma jovem padawan, o capiroto o aguarda faz tempo e não se reclama disso.
+
+\say{Vôte!}
 
 \section{Arrays na Vida Real?!}
 \subsection{Imprimir Elementos}
