@@ -5,9 +5,9 @@ C in Fork é um livro sobre Linguagem de Programação C voltado aos iniciantes 
 computadores. Ele será inicialmente escrito em Português, contudo com planos de
 ser traduzido para o Inglês.
 
-*C in Fork is a book about the C programming language addressing beginners in
-computers.  It will be originally written in Portuguese but with plans to be
-translated into English.*
+*C in Fork is a book about the C programming language targeted to people
+getting started with computers. It will be originally written in Portuguese but
+with plans to be translated into English.*
 
 *The pdf version is available already:*
 [c_in_fork.pdf](https://github.com/c0defellas/c.in.fork.book/raw/master/c_in_fork.pdf)
@@ -30,13 +30,13 @@ Requirements
 ------------
 
 * A TeX editor of your choice, then Emacs. Please, no editor wars here. I
-(Geyslan, one of the collaborators) grown up being taught that we have just to
-desire the best for everyone. So I'm desiring that picking up Emacs for
-you. Yes, I do know that Emacs isn't the only choice, but I certainly know that
-it's the good and right one. Be advised. :P
+(Geyslan, one of the collaborators) grew up being taught that we have to desire
+the best for everyone. So I'm doing that by picking up Emacs for you. Yes, I do
+know that Emacs isn't the only choice, but I certainly know that it's the good
+and right one. Be advised. :P
 
-    * 80th column limit for easier reading. If you choosed right and are using
-    Emacs the unique mandatory config is:
+    * Column is limited to 80 characters for easier reading. If you chose right
+    and that means using Emacs the unique mandatory config is:
 
         ```
         (add-hook 'LaTeX-mode-hook '(lambda ()
@@ -53,7 +53,7 @@ it's the good and right one. Be advised. :P
 Compiling
 ---------
 
-After editing the TeX files using your "best" editor just compile the book as
+After editing the TeX files using your "best" editor compile the book as
 pdf:
 
 Compiling:
