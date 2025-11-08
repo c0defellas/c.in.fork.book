@@ -6,26 +6,26 @@ Se você chegou até aqui, significa que já passou pelo batismo inicial de conc
 
 \section{Origens da linguagem}
 
-C é uma linguagem antiga. Muito antiga. Estamos falando de 1972, quando o planeta ainda não era conectado pela internet como hoje. Naquela época, Dennis Ritchie, pesquisador dos Bell Labs, precisava de uma linguagem que fosse poderosa o suficiente para manipular hardware, mas também legível para humanos.
+C é uma linguagem antiga. Muito antiga. Estamos falando de 1972, quando o planeta ainda não era conectado pela internet como hoje (imagina só, nenhuma pornô para distrair os programadores). Naquela época, Dennis Ritchie, pesquisador dos Bell Labs, precisava de uma linguagem que fosse poderosa o suficiente para manipular hardware, mas também legível para humanos. Spoiler: ele conseguiu. Sort of.
 
 \begin{quote}
-\textit{Por que uma linguagem tão antiga ainda é relevante nos dias de hoje?}
+\textit{Por que uma linguagem tão antiga ainda é relevante nos dias de hoje? Ela não deveria estar aposentada tomando mojito em uma praia?}
 \end{quote}
 
-Ótima pergunta! A resposta é simples: C foi revolucionária. Ela oferecia o melhor dos dois mundos: a proximidade com o hardware das linguagens de baixo nível e a legibilidade das linguagens de alto nível. Sistema operacional Unix, que mudou o mundo da computação, foi escrito em C. Até hoje, o kernel do Linux é predominantly escrito em C.
+Ótima pergunta! A resposta é simples: C foi revolucionária. Ela oferecia o melhor dos dois mundos: a proximidade com o hardware das linguagens de baixo nível e a legibilidade das linguagens de alto nível. Sistema operacional Unix, que mudou o mundo da computação, foi escrito em C. Até hoje, o kernel do Linux é predominantly escrito em C. Quando Steve Jobs morreu, até ele levou um pouco de C consigo (não literalmente, obviamente).
 
-Portanto, se você quer entender como os computadores funcionam por baixo, C é a porta de entrada. É como aprender latim para entender as raízes das línguas modernas, mas, felizmente, bem mais útil e com uma comunidade ativa.
+Portanto, se você quer entender como os computadores funcionam por baixo (e não apenas clicar em botões bonitos), C é a porta de entrada. É como aprender latim para entender as raízes das línguas modernas, mas, felizmente, bem mais útil, com uma comunidade ativa, e ninguém vai te achar estranho por programar em C (diferente de latim).
 
 \section{Porque aprender C?}
 
 Você pode estar se perguntando: existem linguagens mais modernas e fáceis por aí. Por que diabos aprender C?
 
 \begin{enumerate}
-\item \textbf{Entendimento de Fundamentos}: C te força a pensar sobre memória, ponteiros e estrutura de dados. Essas são habilidades que você levará para qualquer linguagem.
-\item \textbf{Performance}: Código bem escrito em C é extraordinariamente rápido. Sistemas embarcados, bancos de dados e servidores críticos usam C porque ela entrega performance.
-\item \textbf{Portabilidade}: Um programa em C compilado funciona em praticamente qualquer plataforma. Windows, Linux, macOS, sistemas embarcados, tudo funciona com C.
-\item \textbf{Oportunidades Profissionais}: Muitas empresas ainda usam C em producao. Conhecer C te abre portas em áreas como sistemas operacionais, compiladores, databases e infraestrutura.
-\item \textbf{Simplicidade}: Comparada a linguagens modernas como C++, C é simples. Há poucas abstrações entre você e o que realmente está acontecendo na máquina.
+\item \textbf{Entendimento de Fundamentos}: C te força a pensar sobre memória, ponteiros e estrutura de dados. Essas são habilidades que você levará para qualquer linguagem. Também vai te deixar paranóico com memory leaks, mas isso é parte do processo.
+\item \textbf{Performance}: Código bem escrito em C é extraordinariamente rápido. Tão rápido que você vai se questionar se Python está realmente compilando ou só fingia estar processando a vida inteira.
+\item \textbf{Portabilidade}: Um programa em C compilado funciona em praticamente qualquer plataforma. Windows, Linux, macOS, sistemas embarcados, geladeira inteligente, aquele relógio antigo da sua avó... tudo funciona com C.
+\item \textbf{Oportunidades Profissionais}: Muitas empresas ainda usam C em produção (sim, em 2024 mesmo). Conhecer C te abre portas em áreas como sistemas operacionais, compiladores, databases, infraestrutura, e até em trabalhos de arqueologia de código.
+\item \textbf{Simplicidade}: Comparada a linguagens modernas como C++, C é simples. Há poucas abstrações entre você e o que realmente está acontecendo na máquina. A desvantagem? Você vai ver exatamente o que está acontecendo, e frequentemente vai querer chorar.
 \end{enumerate}
 
 \section{Onde C é usado?}
@@ -34,15 +34,15 @@ C está em todos os lugares, mesmo que você não veja diretamente.
 
 \subsection{Sistemas Operacionais}
 
-Linux, Windows (em partes), macOS, Android e iOS têm componentes críticos escritos em C. O kernel do Linux, responsável pelo gerenciamento de recursos do sistema, é principalmente C.
+Linux, Windows (em partes, a outra parte é umas coisas estranhas em PowerShell), macOS, Android e iOS têm componentes críticos escritos em C. O kernel do Linux, responsável pelo gerenciamento de recursos do sistema, é principalmente C. É tipo o coração do seu computador: vital, invisível, e ninguém quer mexer nele.
 
 \subsection{Bancos de Dados}
 
-SQLite, PostgreSQL e MySQL têm suas implementações core em C. Se você usa um banco de dados, há grandes chances de estar usando código C por baixo.
+SQLite, PostgreSQL e MySQL têm suas implementações core em C. Se você usa um banco de dados (e usa, com certeza), há grandes chances de estar usando código C por baixo. É como descobrir que o chef do seu restaurante favorito é vegetariano: muda sua perspectiva.
 
 \subsection{Sistemas Embarcados}
 
-Microcontroladores, IoT devices, smartwatches - tudo isso frequentemente roda C. Quando recursos de memória são limitados, C é a escolha obvia.
+Microcontroladores, IoT devices, smartwatches - tudo isso frequentemente roda C. Esse seu relógio inteligente que mede batidas cardíacas? Provavelmente C. Aquele sensor de temperatura na sua casa? C também. Quando recursos de memória são limitados, C é a escolha óbvia (Python explodiria tudo).
 
 \subsection{Compiladores e Ferramentas}
 
@@ -103,13 +103,13 @@ Salve o arquivo. Parabéns, você acabou de criar seu primeiro programa em C!
 
 \section{Compilando meu programa}
 
-Agora vamos transformar esse código em um programa executável. Abra seu terminal e navegue até a pasta onde salvou o arquivo \textbf{hello.c}.
+Agora vamos transformar esse código em um programa executável. Abra seu terminal e navegue até a pasta onde salvou o arquivo \textbf{hello.c}. Sim, aquela coisa preta assustadora que faz parecer que você está hackeando um banco em um filme dos anos 90.
 
 \begin{quote}
 \textit{Terminal? Isso é aquela tela preta assustadora?}
-\end{quote}
+\end{quote>
 
-Sim, mas não se preocupe. A linha de comando é sua amiga, especialmente para programadores.
+Sim. E é maravilhoso. Apesar de parecer que você está 100% prestes a ser preso pelo FBI, na verdade você está apenas dando ordens ao seu computador como um ditador esclarecido. A linha de comando é sua amiga, especialmente para programadores. Pense nela como o portal para realidades alternativas onde você tem controle total.
 
 Digite o seguinte comando:
 

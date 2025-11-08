@@ -59,7 +59,7 @@ Uma variável é um local nomeado na memória onde você armazena dados. Antes d
 \textit{Declarar? Parece burocrático...}
 \end{quote}
 
-É bem simples. Declarar significa dizer ao compilador: \say{Ei, eu preciso de um espaço na memória para guardar um inteiro, e quero chamar esse espaço de 'x'}.
+É bem simples. Declarar significa dizer ao compilador: \say{Ei, eu preciso de um espaço na memória para guardar um inteiro, e quero chamar esse espaço de 'x'}. É tipo reservar um quarto em um hotel assustador da memória.
 
 A sintaxe é:
 
@@ -85,7 +85,7 @@ Você também pode \textit{inicializar} uma variável no ato da declaração, ou
   double resultado = 3.14;
 \end{ccode}
 
-É uma boa prática sempre inicializar suas variáveis, especialmente em escopos locais. Do contrário, elas conterão lixo (valores aleatórios da memória).
+É uma boa prática sempre inicializar suas variáveis, especialmente em escopos locais. Do contrário, elas conterão lixo (valores aleatórios que estavam ali antes, tipo aquele tempo que você experimentou aquele energético estranho em uma festa).
 
 \begin{quote}
 \textit{Qual é a diferença entre declaração e inicialização?}
@@ -112,12 +112,13 @@ Bons nomes de variáveis:
   int contador_loops;
 \end{ccode}
 
-Nomes ruins (evite):
+Nomes ruins (evite a menos que queira enviar seu futuro self para a terapia):
 
 \begin{ccode}
-  int x;           // Muito vago
-  int DadosDoSistema;  // Muito genérico
-  int a1b2c3;      // Ilegível
+  int x;           // Muito vago (que até matématicos diriam: "cara, isso é genérico demais")
+  int DadosDoSistema;  // Muito genérico (parece que você está programando uma ficção científica)
+  int a1b2c3;      // Ilegível (parece um código para desativar uma bomba, mas apenas para confundir)
+  int meioEstranho;  // Ninguém sabe o que você estava pensando
 \end{ccode}
 
 \section{Modificadores}
@@ -126,12 +127,12 @@ Modificadores alteram o comportamento dos tipos básicos. Os principais são:
 
 \subsection{unsigned (sem sinal)}
 
-Por padrão, tipos inteiros podem representar números negativos. Se você sabe que seus dados são sempre positivos ou zero, use \textit{unsigned} para dobrar o intervalo positivo.
+Por padrão, tipos inteiros podem representar números negativos. Se você sabe que seus dados são sempre positivos ou zero (como sua autoestima de programador), use \textit{unsigned} para dobrar o intervalo positivo.
 
 \begin{ccode}
-  int idade = -5;              // Permitido
-  unsigned int quantidade = 1000;  // Sempre positivo
-  unsigned int quantidade_negativa = -5;  // ERRO! Undefined behavior
+  int idade = -5;              // Permitido (mas questionável filosoficamente)
+  unsigned int quantidade = 1000;  // Sempre positivo (como uma criança antes dos 7 anos)
+  unsigned int quantidade_negativa = -5;  // ERRO! Undefined behavior (C vai fazer algo estranho e culpar você)
 \end{ccode}
 
 \subsection{short (curto) e long (longo)}

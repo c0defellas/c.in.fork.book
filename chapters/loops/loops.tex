@@ -2,9 +2,9 @@
 
 \chapter{Estruturas de Repetição (Loops)}
 
-Imagine que você precisa imprimir os números de 1 a 1000. Seria tedioso escrever 1000 \textit{printf} statements, não é? Para situações assim existem as estruturas de repetição, também conhecidas como loops.
+Imagine que você precisa imprimir os números de 1 a 1000. Seria tedioso (e potencialmente te deixaria louco) escrever 1000 \textit{printf} statements. Seria tipo aquele castigo da escola: \say{você vai escrever a mesma coisa 1000 vezes}. Para situações assim existem as estruturas de repetição, também conhecidas como loops.
 
-Um loop permite executar um bloco de código múltiplas vezes. Existem basicamente três tipos em C.
+Um loop permite executar um bloco de código múltiplas vezes sem enlouquecer você. É tipo um DJ que repete a mesma música até que todos na festa estejam satisfeitos (ou desmaiados). Existem basicamente três tipos em C, cada um bom para ocasiões diferentes (tipo escolher entre cerveja, vinho ou energético).
 
 \section{Comando for}
 
@@ -92,10 +92,10 @@ Exemplo:
 Este código imprime os números 0, 1, 2, 3, 4.
 
 \begin{quote}
-\textit{Cuidado com loops infinitos!}
+\textit{Cuidado com loops infinitos! Eles são pior que uma música do funk em um casamento.}
 \end{quote}
 
-Se você esquecer de atualizar a variável da condição, o loop nunca terminará:
+Se você esquecer de atualizar a variável da condição, o loop nunca terminará. É tipo entrar em um filme de terror onde você fica preso na mesma cena para sempre:
 
 \begin{ccode}
   int contador = 0;
@@ -122,13 +122,15 @@ Este código imprime todos os números pares de 1 a 100.
 
 \section{Comando do-while}
 
-O \textit{do-while} é similar ao \textit{while}, mas garante que o bloco execute AT LEAST uma vez, mesmo que a condição seja falsa inicialmente.
+O \textit{do-while} é o primo menos conhecido do \textit{while}, mas extremamente útil. É tipo aquela coisa que você faz uma vez com aquele amigo que você não gosta muito, mas depois nunca mais.
+
+Garante que o bloco execute AT LEAST uma vez, mesmo que a condição seja falsa inicialmente. É tipo: \say{primeiro você tenta, depois vê se faz sentido}.
 
 Sintaxe:
 
 \begin{ccode}
   do {
-    // código a ser repetido
+    // código a ser repetido (pelo menos uma vez!)
   } while (condição);
 \end{ccode}
 
@@ -142,9 +144,9 @@ Exemplo:
   } while (numero < 5);
 \end{ccode}
 
-Este código imprime \say{Número: 10} uma vez, mesmo que \textit{numero} (10) não seja menor que 5.
+Este código imprime \say{Número: 10} uma vez, mesmo que \textit{numero} (10) não seja menor que 5. É tipo uma festa que todo mundo odeia mas ainda é fiel a ela porque uma vez começou.
 
-Com \textit{while} normal, nada seria impresso.
+Com \textit{while} normal, absolutamente nada seria impresso (porque desde o começo já sabia que era uma festa ruim).
 
 Uso comum de \textit{do-while} é em menus:
 

@@ -12,7 +12,7 @@ Contudo, o que você está organizando materialmente são caracteres.
 
 Imagine agora que, usando o mesmo texto do papel no computador, para cada
 caractere organizado tenhamos que definir uma variável do tipo \textit{char} e
-atribuir-lhe o valor respectivo.
+atribuir-lhe o valor respectivo. Sim. Isso seria absolutamente insano.
 
 \begin{ccode}
   char c1, c2, c3, c4, c5, c6, c7, c8, c9, c10,
@@ -29,8 +29,8 @@ atribuir-lhe o valor respectivo.
 \end{ccode}
 
 Tal exemplo é deveras trabalho do capiroto, e só será utilizado na vida real se
-o programador tiver algum pacto com esse tinhoso. Para os que seguem o caminho
-da luz e dos ensinamentos jedi há uma alternativa feliz.
+o programador tiver algum pacto com esse tinhoso (ou se estiver muito bêbado). Para os que seguem o caminho
+da luz e dos ensinamentos jedi (e sanidade mental) há uma alternativa muito mais feliz.
 
 \textbf{Arrays}, em C, são tipos de dados de alocação contíngua derivados dos
 tipos simples. Em outras palavras, são estruturas de dados homogêneas,
@@ -113,16 +113,16 @@ um array de \textit{int} com seis elementos e \textbf{c} como um array de
 
 Uma boa prática de programação é inicializar os arrays, assim como os tipos
 simples, pois, tanto em i[] quanto em c[], vemos claramente que os elementos
-têm valores aleatórios. Isso se dá pelo lixo encontrado na área da memória
+têm valores aleatórios completamente aleatórios (como aquele colega que aparece na festa). Isso se dá pelo lixo encontrado na área da memória
 usada por esses recém-definidos arrays num escopo local.
 
 Arrays também podem ser definidos com a quantidade de elementos informada por
 outra variável, quando em escopo local. Mas atente sempre para inicializar a
 variável que é responsável pela quantidade de elementos acima de zero, do
-contrário comportamentos indesejados acontecerão, tais como pipocas voando na
-tela ou suco de tangerina escorrendo pelos cantos do monitor.
+contrário comportamentos indesejados acontecerão. Coisas estranhas. Realmente estranhas. Tipo pipocas voando na
+tela, suco de tangerina escorrendo pelos cantos do monitor, ou seu código invocar entidades dimensionais.
 
-\textit{Inicialize sempre a variável com a quantidade de elementos.}\\
+\textit{Inicialize sempre a variável com a quantidade de elementos. SEMPRE. Não brinque com isso.}\\
 \begin{ccode}
   int elements = 10;
   ...
@@ -554,7 +554,7 @@ Ordenar um array é um problema clássico. Existem muitos algoritmos, mas vamos 
   }
 \end{ccode}
 
-O Bubble Sort funciona comparando elementos adjacentes e trocando-os se estiverem na ordem errada. Não é o algoritmo mais eficiente para arrays grandes, mas é simples de entender.
+O Bubble Sort funciona comparando elementos adjacentes e trocando-os se estiverem na ordem errada. É tipo aquele jogo de cadeiras onde você fica trocando de lugar até que alguém fique satisfeito. Não é o algoritmo mais eficiente para arrays grandes (na verdade, é bem ineficiente), mas é simples de entender, o que é importante quando você está aprendendo.
 
 \section{Arrays com Parâmetros}
 

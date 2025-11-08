@@ -32,15 +32,17 @@ Exemplos:
 \end{ccode}
 
 \begin{quote}
-\textit{Cuidado com ==!}
+\textit{Cuidado com ==! Sério, esse é o erro mais comum desde a invenção do pão de queijo.}
 \end{quote}
 
-Um erro comum é usar uma única igualdade (\textit{=}) em vez de duas (\textit{==}). A primeira é atribuição, a segunda é comparação.
+Um erro comum é usar uma única igualdade (\textit{=}) em vez de duas (\textit{==}). É tipo confundir um casamento com um namorado. A primeira é atribuição (você está \textit{dando} algo), a segunda é comparação (você está \textit{perguntando} se são iguais).
 
 \begin{ccode}
-  if (x = 5) { }    // ERRADO: atribui 5 a x
-  if (x == 5) { }   // CORRETO: compara x com 5
+  if (x = 5) { }    // ERRADO: atribui 5 a x (e seu código fica estranho)
+  if (x == 5) { }   // CORRETO: compara x com 5 (e todos ficarão felizes)
 \end{ccode}
+
+Esse erro é tão comum que compiladores têm warnings especiais para ele. Se você cometer esse erro, o compilador vai olhar para você tipo aquele professor que te pega copiando a lição de casa.
 
 \section{Operadores lógicos}
 
@@ -219,10 +221,10 @@ Exemplo prático:
 Este código imprime \say{Quarta} porque \textit{dia\_semana} é 3.
 
 \begin{quote}
-\textit{Nunca esqueça do break!}
+\textit{Nunca esqueça do break! Sério. Esse é o tipo de erro que faz você passar 3 horas debugando.}
 \end{quote}
 
-O \textit{break} interrompe a execução do \textit{switch}. Sem ele, a execução continua para o próximo \textit{case}, mesmo que a condição não seja atendida:
+O \textit{break} interrompe a execução do \textit{switch}. É tipo sair de uma loja: você entra em um case, faz suas compras (executa o código), e depois sai. Sem \textit{break}, você é aquele cliente estranho que segue andando pela loja mesmo tendo conseguido o que queria. A execução continua para o próximo \textit{case}, mesmo que a condição não seja atendida (em outras palavras: caos):
 
 \begin{ccode}
   // SEM break:
