@@ -467,14 +467,270 @@ Calma jovem padawan, o capiroto o aguarda faz tempo e não se reclama disso.
 
 
 \section{Arrays na Vida Real?!}
+
+Agora que você entende como arrays funcionam, vamos aplicar esse conhecimento em problemas reais. Frequentemente você precisará manipular arrays de diferentes formas.
+
 \subsection{Imprimir Elementos}
+
+A forma mais básica de trabalhar com arrays é iterá-los e imprimir seus elementos.
+
+\begin{ccode}
+  int notas[5] = {85, 90, 78, 92, 88};
+
+  for (int i = 0; i < 5; i++) {
+    printf("Nota %d: %d\n", i, notas[i]);
+  }
+\end{ccode}
+
+Saída:
+\begin{quote}
+  Nota 0: 85
+  Nota 1: 90
+  Nota 2: 78
+  Nota 3: 92
+  Nota 4: 88
+\end{quote}
+
 \subsection{Somar Elementos}
+
+Frequentemente você precisa calcular a soma de todos os elementos de um array.
+
+\begin{ccode}
+  int valores[4] = {10, 20, 30, 40};
+  int soma = 0;
+
+  for (int i = 0; i < 4; i++) {
+    soma += valores[i];
+  }
+
+  printf("Soma total: %d\n", soma);  // Imprime: Soma total: 100
+\end{ccode}
+
 \subsection{Inverter o Array}
+
+Às vezes você quer inverter a ordem dos elementos.
+
+\begin{ccode}
+  int numeros[5] = {1, 2, 3, 4, 5};
+
+  // Método: trocar elementos das extremidades
+  for (int i = 0; i < 5 / 2; i++) {
+    int temp = numeros[i];
+    numeros[i] = numeros[4 - i];
+    numeros[4 - i] = temp;
+  }
+
+  // Agora o array é: {5, 4, 3, 2, 1}
+  for (int i = 0; i < 5; i++) {
+    printf("%d ", numeros[i]);
+  }
+  // Imprime: 5 4 3 2 1
+\end{ccode}
+
+O truque aqui é usar uma variável temporária (\textit{temp}) para trocar dois elementos sem perder dados.
+
 \subsection{Ordenar o Array}
+
+Ordenar um array é um problema clássico. Existem muitos algoritmos, mas vamos ver o mais simples: \textit{Bubble Sort}.
+
+\begin{ccode}
+  int numeros[5] = {5, 2, 8, 1, 9};
+
+  // Bubble Sort
+  for (int i = 0; i < 5; i++) {
+    for (int j = 0; j < 5 - i - 1; j++) {
+      if (numeros[j] > numeros[j + 1]) {
+        // Troca
+        int temp = numeros[j];
+        numeros[j] = numeros[j + 1];
+        numeros[j + 1] = temp;
+      }
+    }
+  }
+
+  // Agora está ordenado: {1, 2, 5, 8, 9}
+  for (int i = 0; i < 5; i++) {
+    printf("%d ", numeros[i]);
+  }
+\end{ccode}
+
+O Bubble Sort funciona comparando elementos adjacentes e trocando-os se estiverem na ordem errada. Não é o algoritmo mais eficiente para arrays grandes, mas é simples de entender.
 
 \section{Arrays com Parâmetros}
 
+Frequentemente você deseja passar um array para uma função. Quando você passa um array para uma função, na verdade está passando um \textit{ponteiro} para o primeiro elemento (veremos ponteiros em detalhes depois).
+
+\begin{ccode}
+  void imprimir_array(int arr[], int tamanho) {
+    for (int i = 0; i < tamanho; i++) {
+      printf("%d ", arr[i]);
+    }
+    printf("\n");
+  }
+
+  int main(void) {
+    int valores[5] = {1, 2, 3, 4, 5};
+    imprimir_array(valores, 5);
+    return 0;
+  }
+\end{ccode}
+
+Note que você precisa passar o tamanho do array também, pois a função não pode determinar automaticamente quantos elementos tem.
+
+Exemplo mais complexo:
+
+\begin{ccode}
+  int somar_array(int arr[], int tamanho) {
+    int soma = 0;
+    for (int i = 0; i < tamanho; i++) {
+      soma += arr[i];
+    }
+    return soma;
+  }
+
+  int encontrar_maximo(int arr[], int tamanho) {
+    int maximo = arr[0];
+    for (int i = 1; i < tamanho; i++) {
+      if (arr[i] > maximo) {
+        maximo = arr[i];
+      }
+    }
+    return maximo;
+  }
+
+  int main(void) {
+    int notas[5] = {78, 92, 85, 88, 95};
+
+    int total = somar_array(notas, 5);
+    int melhor_nota = encontrar_maximo(notas, 5);
+
+    printf("Total: %d\n", total);  // Total: 438
+    printf("Melhor nota: %d\n", melhor_nota);  // Melhor nota: 95
+
+    return 0;
+  }
+\end{ccode}
+
 \section{Arrays Multidimensionais (Matrizes)}
 
+Arrays podem ter mais de uma dimensão. Um array bidimensional é útil para representar matrizes ou tabuleiros (como em xadrez ou jogo da velha).
+
+Sintaxe:
+
+\begin{ccode}
+  int matriz[linhas][colunas];
+\end{ccode}
+
+Exemplo de uma matriz 3x3:
+
+\begin{ccode}
+  int matriz[3][3] = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+  };
+\end{ccode}
+
+Acessando elementos:
+
+\begin{ccode}
+  printf("%d\n", matriz[0][0]);  // 1 (primeira linha, primeira coluna)
+  printf("%d\n", matriz[1][2]);  // 6 (segunda linha, terceira coluna)
+  printf("%d\n", matriz[2][1]);  // 8 (terceira linha, segunda coluna)
+\end{ccode}
+
+Iterando uma matriz:
+
+\begin{ccode}
+  int matriz[3][3] = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+  };
+
+  for (int i = 0; i < 3; i++) {           // Para cada linha
+    for (int j = 0; j < 3; j++) {         // Para cada coluna
+      printf("%d ", matriz[i][j]);
+    }
+    printf("\n");
+  }
+\end{ccode}
+
+Saída:
+\begin{quote}
+  1 2 3
+  4 5 6
+  7 8 9
+\end{quote}
+
+Exemplo prático: soma de todos os elementos
+
+\begin{ccode}
+  int matriz[3][3] = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+  };
+
+  int soma = 0;
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      soma += matriz[i][j];
+    }
+  }
+
+  printf("Soma de todos os elementos: %d\n", soma);  // 45
+\end{ccode}
+
+Você pode ter arrays com mais dimensões:
+
+\begin{ccode}
+  // Array tridimensional (cubo de dados)
+  int cubo[2][2][2];
+
+  // Acesso ao elemento:
+  cubo[0][1][1] = 10;
+\end{ccode}
+
+Porém, arrays com muitas dimensões tornam o código difícil de ler. Na maioria das vezes, matrizes bidimensionais são suficientes.
+
+Exemplo de um simples jogo da velha (representação):
+
+\begin{ccode}
+  int tabuleiro[3][3] = {
+    {0, 0, 0},    // 0 = vazio, 1 = X, 2 = O
+    {0, 0, 0},
+    {0, 0, 0}
+  };
+
+  // X joga na posição [0][1]
+  tabuleiro[0][1] = 1;
+
+  // O joga na posição [1][1]
+  tabuleiro[1][1] = 2;
+
+  // Imprimir tabuleiro
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      if (tabuleiro[i][j] == 0) {
+        printf(".");
+      } else if (tabuleiro[i][j] == 1) {
+        printf("X");
+      } else {
+        printf("O");
+      }
+    }
+    printf("\n");
+  }
+\end{ccode}
+
+Saída:
+\begin{quote}
+  .X.
+  .O.
+  ...
+\end{quote}
+
+Arrays, especialmente multidimensionais, são ferramentas poderosas para estruturar dados. Combinados com loops e funções, você pode resolver muitos problemas práticos de programação.
 
 %------------------------------------------------

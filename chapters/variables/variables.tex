@@ -1,23 +1,314 @@
 \chapterimage{chapter_pointers.jpg} % Chapter heading image
 
-\chapter{Variaveis, Tipos de Dados e Expressões Aritméticas}
-Conceitos
+\chapter{Variáveis, Tipos de Dados e Expressões Aritméticas}
 
-\begin{itemize}
-  \item item
-\end{itemize}
+Agora que você já executou seu primeiro programa, é hora de aprender um conceito fundamental: como armazenar e manipular dados. Em todo programa interessante, você precisa guardar informações. Uma idade, um nome, um saldo bancário. C oferece maneiras estruturadas de fazer isso através de variáveis e tipos de dados.
 
 \section{Tipo de dados básicos}
+
+Em C, toda variável deve ter um tipo. O tipo define quanto espaço na memória será reservado e como aquele dado será interpretado.
+
+Os tipos básicos em C são:
+
+\subsection{int (inteiro)}
+
+Representa números inteiros, tanto positivos quanto negativos. Um \textit{int} típico ocupa 4 bytes (32 bits) de memória, permitindo armazenar números de aproximadamente -2 bilhões a +2 bilhões.
+
+\begin{ccode}
+  int idade = 25;
+  int temperatura = -10;
+  int habitantes = 1000000;
+\end{ccode}
+
+\subsection{float (ponto flutuante)}
+
+Representa números decimais. Um \textit{float} ocupa 4 bytes e oferece precisão limitada (cerca de 6-7 dígitos significativos).
+
+\begin{ccode}
+  float altura = 1.75;
+  float pi_aproximado = 3.14;
+  float saldo = -50.25;
+\end{ccode}
+
+\subsection{double (ponto flutuante duplo)}
+
+Similar ao \textit{float}, mas ocupa 8 bytes e oferece maior precisão (cerca de 15-16 dígitos significativos). Use quando precisar de mais precisão em cálculos matemáticos.
+
+\begin{ccode}
+  double pi = 3.141592653589793;
+  double resultado_cientifico = 0.000000123456789;
+\end{ccode}
+
+\subsection{char (caractere)}
+
+Representa um único caractere. Ocupa 1 byte. Pode ser uma letra, um dígito ou um símbolo especial.
+
+\begin{ccode}
+  char letra = 'A';
+  char operador = '+';
+  char aspas = '"';
+\end{ccode}
+
+Lembre-se: caracteres individuais usam aspas simples (\textit{'A'}), enquanto textos completos usam aspas duplas (\textit{"texto"}).
+
 \section{Variáveis}
+
+Uma variável é um local nomeado na memória onde você armazena dados. Antes de usar uma variável, você precisa \textit{declarar} ela.
+
+\begin{quote}
+\textit{Declarar? Parece burocrático...}
+\end{quote}
+
+É bem simples. Declarar significa dizer ao compilador: \say{Ei, eu preciso de um espaço na memória para guardar um inteiro, e quero chamar esse espaço de 'x'}.
+
+A sintaxe é:
+
+\begin{ccode}
+  tipo nome_da_variavel;
+\end{ccode}
+
+Exemplos:
+
+\begin{ccode}
+  int contador;
+  float altura;
+  char inicial;
+  double resultado;
+\end{ccode}
+
+Você também pode \textit{inicializar} uma variável no ato da declaração, ou seja, atribuir um valor inicial:
+
+\begin{ccode}
+  int contador = 0;
+  float altura = 1.80;
+  char inicial = 'J';
+  double resultado = 3.14;
+\end{ccode}
+
+É uma boa prática sempre inicializar suas variáveis, especialmente em escopos locais. Do contrário, elas conterão lixo (valores aleatórios da memória).
+
+\begin{quote}
+\textit{Qual é a diferença entre declaração e inicialização?}
+\end{quote}
+
+\textit{Declaração} apenas reserva espaço na memória. \textit{Inicialização} reserva espaço E atribui um valor inicial. Se você declara sem inicializar, o valor será aleatório.
+
+Regras para nomear variáveis:
+
+\begin{itemize}
+  \item Começam com uma letra (a-z, A-Z) ou sublinhado (\_)
+  \item Podem conter letras, dígitos (0-9) e sublinhadosDepois de caracteres iniciais
+  \item São \textit{case-sensitive}, ou seja, \textbf{contador} é diferente de \textbf{Contador}
+  \item Não podem ter espaços
+  \item Não podem ser palavras reservadas (like \textit{int}, \textit{while}, \textit{if}, etc)
+\end{itemize}
+
+Bons nomes de variáveis:
+
+\begin{ccode}
+  int idade_usuario;
+  float saldo_conta;
+  char inicial_nome;
+  int contador_loops;
+\end{ccode}
+
+Nomes ruins (evite):
+
+\begin{ccode}
+  int x;           // Muito vago
+  int DadosDoSistema;  // Muito genérico
+  int a1b2c3;      // Ilegível
+\end{ccode}
+
 \section{Modificadores}
+
+Modificadores alteram o comportamento dos tipos básicos. Os principais são:
+
+\subsection{unsigned (sem sinal)}
+
+Por padrão, tipos inteiros podem representar números negativos. Se você sabe que seus dados são sempre positivos ou zero, use \textit{unsigned} para dobrar o intervalo positivo.
+
+\begin{ccode}
+  int idade = -5;              // Permitido
+  unsigned int quantidade = 1000;  // Sempre positivo
+  unsigned int quantidade_negativa = -5;  // ERRO! Undefined behavior
+\end{ccode}
+
+\subsection{short (curto) e long (longo)}
+
+Modificam o tamanho do tipo:
+
+\begin{ccode}
+  short int valor_pequeno;     // Geralmente 2 bytes
+  long int valor_grande;       // Geralmente 8 bytes
+  long double precisao_dupla;  // Maior precisão que double
+\end{ccode}
+
+\subsection{signed (com sinal)}
+
+Explicitamente permite números negativos (é o padrão para \textit{int} e \textit{char}).
+
+\begin{ccode}
+  signed int temperatura;      // Pode ser negativo
+\end{ccode}
+
 \section{Constantes}
 
+Uma constante é um valor que não pode ser alterado após sua inicialização. Use a palavra-chave \textit{const}:
+
+\begin{ccode}
+  const float pi = 3.14159;
+  const int dias_semana = 7;
+  const char separador = '/';
+\end{ccode}
+
+Se você tentar modificar uma constante, o compilador dará um erro:
+
+\begin{ccode}
+  const int velocidade_luz = 299792458;
+  velocidade_luz = 300000;  // ERRO!
+\end{ccode}
+
+Constantes melhoram a legibilidade e evitam erros acidentais. Se um valor não deve ser alterado, declareNELE como constante.
+
 \section{Expressões Aritméticas}
-\subsection{Operação de resto (\%)}
+
+Você pode realizar operações matemáticas entre variáveis. Os operadores básicos são:
+
+\subsection{Adição (+)}
+
+\begin{ccode}
+  int a = 5;
+  int b = 3;
+  int soma = a + b;  // soma = 8
+\end{ccode}
+
+\subsection{Subtração (-)}
+
+\begin{ccode}
+  int x = 10;
+  int y = 3;
+  int diferenca = x - y;  // diferenca = 7
+\end{ccode}
+
+\subsection{Multiplicação (*)}
+
+\begin{ccode}
+  int multiplicador = 4;
+  int multiplicando = 5;
+  int produto = multiplicador * multiplicando;  // produto = 20
+\end{ccode}
+
+\subsection{Divisão (/)}
+
+\begin{quote}
+\textit{Cuidado!}
+\end{quote}
+
+A divisão entre dois inteiros resulta em um inteiro. Qualquer parte decimal é perdida:
+
+\begin{ccode}
+  int dividendo = 7;
+  int divisor = 2;
+  int quociente = dividendo / divisor;  // quociente = 3 (não 3.5!)
+\end{ccode}
+
+Para obter resultado decimal, use \textit{float} ou \textit{double}:
+
+\begin{ccode}
+  float resultado = 7.0 / 2.0;  // resultado = 3.5
+\end{ccode}
+
+\subsection{Resto (\%)}
+
+O operador de módulo retorna o resto de uma divisão:
+
+\begin{ccode}
+  int dividendo = 17;
+  int divisor = 5;
+  int resto = dividendo \% divisor;  // resto = 2 (pois 17 = 5*3 + 2)
+\end{ccode}
+
+Este operador é frequentemente usado para verificar se um número é par ou ímpar:
+
+\begin{ccode}
+  int numero = 10;
+  if (numero \% 2 == 0) {
+    // numero é par
+  } else {
+    // numero é ímpar
+  }
+\end{ccode}
+
+\subsection{Precedência de Operadores}
+
+Assim como na matemática, existe uma ordem de precedência. Multiplicação e divisão ocorrem antes de adição e subtração:
+
+\begin{ccode}
+  int resultado = 2 + 3 * 4;  // resultado = 14, não 20
+  // Primeiro: 3 * 4 = 12
+  // Depois: 2 + 12 = 14
+\end{ccode}
+
+Use parênteses para deixar claro a ordem:
+
+\begin{ccode}
+  int resultado1 = (2 + 3) * 4;  // resultado1 = 20
+  int resultado2 = 2 + (3 * 4);  // resultado2 = 14
+\end{ccode}
 
 \section{Conversão de tipo de dados}
 
-Conversao.
+Às vezes você precisa converter um tipo de dado para outro. C oferece duas formas: conversão implícita e conversão explícita.
+
+\subsection{Conversão Implícita}
+
+O compilador automaticamente converte tipos quando faz sentido:
+
+\begin{ccode}
+  int x = 5;
+  float y = x;  // int é automaticamente convertido para float
+  // y agora é 5.0
+\end{ccode}
+
+\subsection{Conversão Explícita (Cast)}
+
+Você pode forçar uma conversão usando a sintaxe \textit{(tipo)valor}:
+
+\begin{ccode}
+  float pi = 3.14159;
+  int inteiro = (int)pi;  // inteiro = 3 (parte decimal descartada)
+
+  int velocidade = 100;
+  float velocidade_decimal = (float)velocidade;  // 100.0
+\end{ccode}
+
+\begin{quote}
+\textit{Cuidado ao converter!}
+\end{quote}
+
+Conversões podem perder dados. Converter de \textit{float} para \textit{int} descarta a parte decimal. Converter um número grande para um tipo menor pode causar estouro.
+
+Exemplo prático:
+
+\begin{ccode}
+  #include <stdio.h>
+
+  int main(void)
+  {
+    int nota1 = 85;
+    int nota2 = 90;
+    int nota3 = 78;
+    float media = (nota1 + nota2 + nota3) / 3.0;
+
+    printf("Média: %.2f\n", media);
+    return 0;
+  }
+\end{ccode}
+
+Este programa calcula a média de três notas. Note o \textit{3.0} (em vez de \textit{3}) para garantir divisão em ponto flutuante.
+
+Agora você entende os fundamentos de variáveis e tipos de dados em C. No próximo capítulo, aprenderemos como controlar o fluxo do programa usando decisões (if, else, switch).
 
 %------------------------------------------------
 

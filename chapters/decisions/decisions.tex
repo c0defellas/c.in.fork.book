@@ -1,24 +1,277 @@
 \chapterimage{chapter_pointers.jpg} % Chapter heading image
 
-\chapter{Estruturas de Controle, Operadores Logicos e Relacionais}
-Conceitos
+\chapter{Estruturas de Controle, Operadores Lógicos e Relacionais}
 
-\begin{itemize}
-  \item item
-\end{itemize}
+Até agora seus programas executam de forma linear: linha por linha, sem desvios. Mas e se você quisesse fazer algo diferente dependendo de uma condição? \say{Se o usuário digitar uma senha correta, deixa entrar. Senão, nega acesso.} Para isso existem as estruturas de controle.
 
 \section{Operadores relacionais}
+
+Operadores relacionais comparam dois valores e retornam verdadeiro (true) ou falso (false). São eles:
+
+\begin{itemize}
+  \item \textbf{==} (igual): verifica se dois valores são iguais
+  \item \textbf{!=} (diferente): verifica se dois valores são diferentes
+  \item \textbf{<} (menor): verifica se o primeiro é menor que o segundo
+  \item \textbf{>} (maior): verifica se o primeiro é maior que o segundo
+  \item \textbf{<=} (menor ou igual): verifica se o primeiro é menor ou igual ao segundo
+  \item \textbf{>=} (maior ou igual): verifica se o primeiro é maior ou igual ao segundo
+\end{itemize}
+
+Exemplos:
+
+\begin{ccode}
+  int idade = 18;
+  int permitido = 21;
+
+  idade == permitido      // false (18 não é igual a 21)
+  idade != permitido      // true (18 é diferente de 21)
+  idade < permitido       // true (18 é menor que 21)
+  idade > permitido       // false (18 não é maior que 21)
+  idade <= permitido      // true (18 é menor ou igual a 21)
+  idade >= permitido      // false (18 não é maior ou igual a 21)
+\end{ccode}
+
+\begin{quote}
+\textit{Cuidado com ==!}
+\end{quote}
+
+Um erro comum é usar uma única igualdade (\textit{=}) em vez de duas (\textit{==}). A primeira é atribuição, a segunda é comparação.
+
+\begin{ccode}
+  if (x = 5) { }    // ERRADO: atribui 5 a x
+  if (x == 5) { }   // CORRETO: compara x com 5
+\end{ccode}
+
 \section{Operadores lógicos}
 
+Operadores lógicos combinam múltiplas condições:
+
+\subsection{E (&&)}
+
+Retorna verdadeiro apenas se AMBAS as condições forem verdadeiras.
+
+\begin{ccode}
+  int idade = 25;
+  int tem_carteira = 1;
+
+  (idade >= 18) && (tem_carteira == 1)  // true (ambas condições verdadeiras)
+\end{ccode}
+
+\subsection{OU (||)}
+
+Retorna verdadeiro se PELO MENOS UMA das condições for verdadeira.
+
+\begin{ccode}
+  int eh_policial = 1;
+  int eh_seguranca = 0;
+
+  (eh_policial == 1) || (eh_seguranca == 1)  // true (primeira é verdadeira)
+\end{ccode}
+
+\subsection{NÃO (!)}
+
+Inverte o resultado de uma condição. Verdadeiro vira falso e vice-versa.
+
+\begin{ccode}
+  int chovendo = 1;
+  !chovendo  // false (inverte 1)
+
+  int ensolarado = 0;
+  !ensolarado  // true (inverte 0)
+\end{ccode}
+
 \section{O comando if}
+
+O comando \textit{if} (se) executa um bloco de código apenas se uma condição for verdadeira.
+
+Sintaxe:
+
+\begin{ccode}
+  if (condição) {
+    // código executado se condição for verdadeira
+  }
+\end{ccode}
+
+Exemplo:
+
+\begin{ccode}
+  int nota = 70;
+
+  if (nota >= 60) {
+    printf("Aluno aprovado!\n");
+  }
+\end{ccode}
+
+Se a nota fosse menor que 60, a mensagem não seria impressa.
+
 \subsection{O comando else}
-\subsection{O comando if-else-if}
+
+O comando \textit{else} (senão) executa um bloco alternativo se a condição for falsa.
+
+\begin{ccode}
+  int nota = 50;
+
+  if (nota >= 60) {
+    printf("Aluno aprovado!\n");
+  } else {
+    printf("Aluno reprovado!\n");
+  }
+\end{ccode}
+
+Neste caso, como nota é 50, a segunda mensagem será impressa.
+
+\subsection{O comando else if}
+
+Quando você tem múltiplas condições, use \textit{else if} (senão se):
+
+\begin{ccode}
+  int nota = 75;
+
+  if (nota >= 90) {
+    printf("Excelente!\n");
+  } else if (nota >= 80) {
+    printf("Muito bom!\n");
+  } else if (nota >= 70) {
+    printf("Bom!\n");
+  } else if (nota >= 60) {
+    printf("Satisfatório!\n");
+  } else {
+    printf("Insuficiente!\n");
+  }
+\end{ccode}
+
+As condições são avaliadas em ordem, de cima para baixo. Assim que uma for verdadeira, seu bloco é executado e o resto é ignorado.
+
 \subsection{Ifs aninhados}
+
+Você pode colocar \textit{ifs} dentro de \textit{ifs}:
+
+\begin{ccode}
+  int idade = 25;
+  int tem_carteira = 1;
+
+  if (idade >= 18) {
+    if (tem_carteira == 1) {
+      printf("Pode dirigir!\n");
+    } else {
+      printf("Deve tirar carteira!\n");
+    }
+  } else {
+    printf("Muito jovem para dirigir!\n");
+  }
+\end{ccode}
+
+Porém, ifs aninhados podem ficar confusos. Frequentemente é melhor usar operadores lógicos (\textit{\&\&} ou \textit{||}).
 
 \section{O comando switch}
 
-\section{Operador ternário(?)}
-Conversao.
+O \textit{switch} é útil quando você tem uma variável que pode ter vários valores distintos.
+
+Sintaxe:
+
+\begin{ccode}
+  switch (variavel) {
+    case valor1:
+      // código se variavel == valor1
+      break;
+    case valor2:
+      // código se variavel == valor2
+      break;
+    default:
+      // código se nenhum case corresponder
+      break;
+  }
+\end{ccode}
+
+Exemplo prático:
+
+\begin{ccode}
+  int dia_semana = 3;
+
+  switch (dia_semana) {
+    case 1:
+      printf("Segunda\n");
+      break;
+    case 2:
+      printf("Terça\n");
+      break;
+    case 3:
+      printf("Quarta\n");
+      break;
+    case 4:
+      printf("Quinta\n");
+      break;
+    case 5:
+      printf("Sexta\n");
+      break;
+    case 6:
+      printf("Sábado\n");
+      break;
+    case 7:
+      printf("Domingo\n");
+      break;
+    default:
+      printf("Dia inválido\n");
+      break;
+  }
+\end{ccode}
+
+Este código imprime \say{Quarta} porque \textit{dia\_semana} é 3.
+
+\begin{quote}
+\textit{Nunca esqueça do break!}
+\end{quote}
+
+O \textit{break} interrompe a execução do \textit{switch}. Sem ele, a execução continua para o próximo \textit{case}, mesmo que a condição não seja atendida:
+
+\begin{ccode}
+  // SEM break:
+  switch (3) {
+    case 3:
+      printf("Quarta\n");
+      // Falta break aqui!
+    case 4:
+      printf("Quinta\n");
+      break;
+  }
+  // Imprime: Quarta
+  //          Quinta
+\end{ccode}
+
+\section{Operador ternário (?:)}
+
+O operador ternário é uma forma compacta de \textit{if-else} em uma única linha.
+
+Sintaxe:
+
+\begin{ccode}
+  (condição) ? valor_se_verdadeiro : valor_se_falso
+\end{ccode}
+
+Exemplo:
+
+\begin{ccode}
+  int idade = 25;
+  char resultado[10];
+
+  if (idade >= 18) {
+    strcpy(resultado, "adulto");
+  } else {
+    strcpy(resultado, "menor");
+  }
+\end{ccode}
+
+Pode ser reescrito com operador ternário:
+
+\begin{ccode}
+  int idade = 25;
+  char *status = (idade >= 18) ? "adulto" : "menor";
+  printf("%s\n", status);  // Imprime: adulto
+\end{ccode}
+
+Use o operador ternário para atribuições simples. Para lógica mais complexa, continue usando \textit{if-else}.
+
+Agora você domina as estruturas de controle em C. Com \textit{if}, \textit{else if}, \textit{switch} e operadores lógicos, você pode fazer seu programa tomar decisões inteligentes. No próximo capítulo, vamos aprender sobre repetições com loops.
 
 %------------------------------------------------
 
