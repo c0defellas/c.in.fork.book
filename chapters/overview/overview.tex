@@ -1,33 +1,174 @@
 \chapterimage{chapter_pointers.jpg} % Chapter heading image
 
 \chapter{Visão Geral da linguagem C}
-blz
 
+Se você chegou até aqui, significa que já passou pelo batismo inicial de conceitos fundamentais. Excelente! Agora é hora de colocar as mãos na massa e entender como a linguagem C realmente funciona.
 
 \section{Origens da linguagem}
-blz
 
-\begin{itemize}
-\item oi
-\end{itemize}
+C é uma linguagem antiga. Muito antiga. Estamos falando de 1972, quando o planeta ainda não era conectado pela internet como hoje (imagina só, nenhuma pornô para distrair os programadores). Naquela época, Dennis Ritchie, pesquisador dos Bell Labs, precisava de uma linguagem que fosse poderosa o suficiente para manipular hardware, mas também legível para humanos. Spoiler: ele conseguiu. Sort of.
+
+\begin{quote}
+\textit{Por que uma linguagem tão antiga ainda é relevante nos dias de hoje? Ela não deveria estar aposentada tomando mojito em uma praia?}
+\end{quote}
+
+Ótima pergunta! A resposta é simples: C foi revolucionária. Ela oferecia o melhor dos dois mundos: a proximidade com o hardware das linguagens de baixo nível e a legibilidade das linguagens de alto nível. Sistema operacional Unix, que mudou o mundo da computação, foi escrito em C. Até hoje, o kernel do Linux é predominantly escrito em C. Quando Steve Jobs morreu, até ele levou um pouco de C consigo (não literalmente, obviamente).
+
+Portanto, se você quer entender como os computadores funcionam por baixo (e não apenas clicar em botões bonitos), C é a porta de entrada. É como aprender latim para entender as raízes das línguas modernas, mas, felizmente, bem mais útil, com uma comunidade ativa, e ninguém vai te achar estranho por programar em C (diferente de latim).
+
 \section{Porque aprender C?}
-blz
+
+Você pode estar se perguntando: existem linguagens mais modernas e fáceis por aí. Por que diabos aprender C?
+
+\begin{enumerate}
+\item \textbf{Entendimento de Fundamentos}: C te força a pensar sobre memória, ponteiros e estrutura de dados. Essas são habilidades que você levará para qualquer linguagem. Também vai te deixar paranóico com memory leaks, mas isso é parte do processo.
+\item \textbf{Performance}: Código bem escrito em C é extraordinariamente rápido. Tão rápido que você vai se questionar se Python está realmente compilando ou só fingia estar processando a vida inteira.
+\item \textbf{Portabilidade}: Um programa em C compilado funciona em praticamente qualquer plataforma. Windows, Linux, macOS, sistemas embarcados, geladeira inteligente, aquele relógio antigo da sua avó... tudo funciona com C.
+\item \textbf{Oportunidades Profissionais}: Muitas empresas ainda usam C em produção (sim, em 2024 mesmo). Conhecer C te abre portas em áreas como sistemas operacionais, compiladores, databases, infraestrutura, e até em trabalhos de arqueologia de código.
+\item \textbf{Simplicidade}: Comparada a linguagens modernas como C++, C é simples. Há poucas abstrações entre você e o que realmente está acontecendo na máquina. A desvantagem? Você vai ver exatamente o que está acontecendo, e frequentemente vai querer chorar.
+\end{enumerate}
 
 \section{Onde C é usado?}
-blz
+
+C está em todos os lugares, mesmo que você não veja diretamente.
+
+\subsection{Sistemas Operacionais}
+
+Linux, Windows (em partes, a outra parte é umas coisas estranhas em PowerShell), macOS, Android e iOS têm componentes críticos escritos em C. O kernel do Linux, responsável pelo gerenciamento de recursos do sistema, é principalmente C. É tipo o coração do seu computador: vital, invisível, e ninguém quer mexer nele.
+
+\subsection{Bancos de Dados}
+
+SQLite, PostgreSQL e MySQL têm suas implementações core em C. Se você usa um banco de dados (e usa, com certeza), há grandes chances de estar usando código C por baixo. É como descobrir que o chef do seu restaurante favorito é vegetariano: muda sua perspectiva.
+
+\subsection{Sistemas Embarcados}
+
+Microcontroladores, IoT devices, smartwatches - tudo isso frequentemente roda C. Esse seu relógio inteligente que mede batidas cardíacas? Provavelmente C. Aquele sensor de temperatura na sua casa? C também. Quando recursos de memória são limitados, C é a escolha óbvia (Python explodiria tudo).
+
+\subsection{Compiladores e Ferramentas}
+
+GCC (GNU Compiler Collection), LLVM e muitas outras ferramentas de desenvolvimento são escritas em C ou C++. Python, Node.js e outras linguagens têm parsers e engines em C.
+
+\subsection{Infraestrutura e Performance-Critical Software}
+
+Redis, Nginx, Apache e outros softwares de alta performance usam C.
 
 \section{Estrutura de um programa em C}
-blz
+
+Todo programa em C segue uma estrutura básica. Vejamos um exemplo simples:
+
+\begin{ccode}
+  #include <stdio.h>
+
+  int main(void)
+  {
+    printf("Olá, Mundo!\n");
+    return 0;
+  }
+\end{ccode}
+
+Parece simples, não é? Mas cada linha tem um propósito. Vamos dissecar:
+
+\begin{itemize}
+  \item \textbf{\#include <stdio.h>}: Esta é uma \textit{diretiva de pré-processador}. Ela diz ao compilador para incluir a biblioteca padrão de entrada/saída (Standard Input/Output). A função \textit{printf} vem dessa biblioteca.
+
+  \item \textbf{int main(void)}: Esta é a \textit{função principal}. Todo programa em C deve ter uma função \textit{main}. O compilador começa a execução daqui. O \textit{int} indica que a função retorna um inteiro. O \textit{void} significa que ela não recebe parâmetros.
+
+  \item \textbf{printf(...)}: Esta função imprime texto na tela. A sequência \textit{\textbackslash n} é um caractere de quebra de linha.
+
+  \item \textbf{return 0;}: Retorna o valor zero para o sistema operacional, indicando que o programa terminou com sucesso.
+\end{itemize}
 
 \section{Meu primeiro programa em C}
-blz
+
+Vamos criar e executar seu primeiro programa. Para isso, você precisa de:
+
+\begin{enumerate}
+  \item Um \textit{editor de texto} (qualquer um serve: gedit, vim, VS Code, etc)
+  \item Um \textit{compilador C} (GCC é recomendado e gratuito)
+\end{enumerate}
+
+Crie um arquivo chamado \textbf{hello.c} com o seguinte conteúdo:
+
+\begin{ccode}
+  #include <stdio.h>
+
+  int main(void)
+  {
+    printf("Olá, eu sou um programador C!\n");
+    return 0;
+  }
+\end{ccode}
+
+Salve o arquivo. Parabéns, você acabou de criar seu primeiro programa em C!
 
 \section{Compilando meu programa}
-blz
+
+Agora vamos transformar esse código em um programa executável. Abra seu terminal e navegue até a pasta onde salvou o arquivo \textbf{hello.c}. Sim, aquela coisa preta assustadora que faz parecer que você está hackeando um banco em um filme dos anos 90.
+
+\begin{quote}
+\textit{Terminal? Isso é aquela tela preta assustadora?}
+\end{quote>
+
+Sim. E é maravilhoso. Apesar de parecer que você está 100% prestes a ser preso pelo FBI, na verdade você está apenas dando ordens ao seu computador como um ditador esclarecido. A linha de comando é sua amiga, especialmente para programadores. Pense nela como o portal para realidades alternativas onde você tem controle total.
+
+Digite o seguinte comando:
+
+\begin{ccode}
+  gcc hello.c -o hello
+\end{ccode}
+
+O que aconteceu? Vamos entender:
+
+\begin{itemize}
+  \item \textbf{gcc}: O compilador GNU C.
+  \item \textbf{hello.c}: O arquivo de código fonte que queremos compilar.
+  \item \textbf{-o hello}: A flag \textit{-o} diz ao compilador qual nome dar ao executável de saída. Neste caso, \textit{hello}.
+\end{itemize}
+
+Se tudo correr bem, você verá apenas o prompt retornando. Isso é bom! Significa que não houve erros. Se houvesse, o compilador teria mostrado mensagens de erro.
 
 \section{Executando}
-blz
+
+Agora vamos executar o programa que compilamos. No terminal, digite:
+
+\begin{ccode}
+  ./hello
+\end{ccode}
+
+O ponto e barra \textit{./} significa "execute o arquivo da pasta atual". Se você estiver no Windows, pode simplesmente digitar \textit{hello} sem o ponto e barra.
+
+Resultado esperado:
+
+\begin{quote}
+\textit{Olá, eu sou um programador C!}
+\end{quote}
+
+Parabéns! Você acabou de escrever, compilar e executar seu primeiro programa em C. Tira uma foto disso aí para mostrar pros amigos.
 
 \section{Entendendo meu programa}
-blz
+
+Vamos revisitar o código e entender o que realmente aconteceu:
+
+\begin{ccode}
+  #include <stdio.h>    // 1. Inclui biblioteca
+
+  int main(void)        // 2. Função principal
+  {                     // 3. Abre bloco
+    printf("Olá, eu sou um programador C!\n");  // 4. Imprime texto
+    return 0;           // 5. Retorna sucesso
+  }                     // 6. Fecha bloco
+\end{ccode}
+
+\begin{enumerate}
+  \item O \textit{\#include <stdio.h>} carrega a biblioteca padrão que contém a função \textit{printf}.
+  \item \textit{main} é o ponto de entrada do programa. Quando você executa o programa, o sistema operacional chamará esta função.
+  \item As chaves \textit{\{\}} delimitam o corpo da função.
+  \item \textit{printf} escreve texto na saída padrão (geralmente a tela).
+  \item \textit{return 0} indica que o programa terminou com sucesso (código de saída 0).
+  \item A chave de fechamento marca o fim da função.
+\end{enumerate}
+
+O fluxo de execução é linear: de cima para baixo. O programa executa linha por linha até encontrar um \textit{return}.
+
+Agora você tem um entendimento básico de como um programa em C funciona. No próximo capítulo, vamos explorar variáveis e tipos de dados.
 

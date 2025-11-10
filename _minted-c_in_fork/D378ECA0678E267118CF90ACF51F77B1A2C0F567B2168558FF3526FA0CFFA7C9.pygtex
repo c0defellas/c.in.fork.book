@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{dividendo}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{17}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{divisor}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{5}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{resto}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{dividendo}\PYG{+w}{ }\PYG{err}{\PYGZbs{}}\PYG{o}{\PYGZpc{}}\PYG{+w}{ }\PYG{n}{divisor}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// resto = 2 (pois 17 = 5*3 + 2)}
+\end{Verbatim}

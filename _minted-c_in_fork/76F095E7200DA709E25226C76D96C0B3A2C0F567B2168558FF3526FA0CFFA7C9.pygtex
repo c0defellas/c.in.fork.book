@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{  }\PYG{k+kt}{short}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{valor\PYGZus{}pequeno}\PYG{p}{;}\PYG{+w}{     }\PYG{c+c1}{// Geralmente 2 bytes}
+\PYG{+w}{  }\PYG{k+kt}{long}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{valor\PYGZus{}grande}\PYG{p}{;}\PYG{+w}{       }\PYG{c+c1}{// Geralmente 8 bytes}
+\PYG{+w}{  }\PYG{k+kt}{long}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{precisao\PYGZus{}dupla}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// Maior precisão que double}
+\end{Verbatim}

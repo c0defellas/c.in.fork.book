@@ -1,24 +1,287 @@
 \chapterimage{chapter_pointers.jpg} % Chapter heading image
 
-\chapter{Estruturas de repetição (Loops)}
-Conceitos
+\chapter{Estruturas de Repetição (Loops)}
 
-\begin{itemize}
-  \item item
-\end{itemize}
+Imagine que você precisa imprimir os números de 1 a 1000. Seria tedioso (e potencialmente te deixaria louco) escrever 1000 \textit{printf} statements. Seria tipo aquele castigo da escola: \say{você vai escrever a mesma coisa 1000 vezes}. Para situações assim existem as estruturas de repetição, também conhecidas como loops.
+
+Um loop permite executar um bloco de código múltiplas vezes sem enlouquecer você. É tipo um DJ que repete a mesma música até que todos na festa estejam satisfeitos (ou desmaiados). Existem basicamente três tipos em C, cada um bom para ocasiões diferentes (tipo escolher entre cerveja, vinho ou energético).
 
 \section{Comando for}
+
+O loop \textit{for} é ideal quando você sabe quantas vezes deseja repetir algo.
+
+Sintaxe:
+
+\begin{ccode}
+  for (inicialização; condição; incremento) {
+    // código a ser repetido
+  }
+\end{ccode}
+
+Vamos desmontar isso:
+
+\begin{itemize}
+  \item \textbf{inicialização}: executada uma única vez no início do loop. Geralmente cria uma variável contadora.
+  \item \textbf{condição}: avaliada antes de cada iteração. Se for falsa, o loop termina.
+  \item \textbf{incremento}: executado após cada iteração. Geralmente incrementa a variável contadora.
+\end{itemize}
+
+Exemplo prático:
+
+\begin{ccode}
+  for (int i = 0; i < 5; i++) {
+    printf("Iteração %d\n", i);
+  }
+\end{ccode}
+
+Este código imprime:
+
+\begin{quote}
+  Iteração 0
+  Iteração 1
+  Iteração 2
+  Iteração 3
+  Iteração 4
+\end{quote}
+
+Fluxo de execução:
+
+\begin{enumerate}
+  \item \textit{i = 0} (inicialização)
+  \item Verifica: \textit{i < 5}? Sim (0 < 5)
+  \item Executa o bloco: imprime \say{Iteração 0}
+  \item \textit{i++} (incrementa i para 1)
+  \item Volta ao passo 2
+  \item Quando \textit{i} chegar a 5, a condição será falsa e o loop termina
+\end{enumerate}
+
+Outro exemplo, somando números:
+
+\begin{ccode}
+  int soma = 0;
+  for (int i = 1; i <= 10; i++) {
+    soma += i;  // Equivalente a: soma = soma + i
+  }
+  printf("Soma de 1 a 10: %d\n", soma);  // Imprime: Soma de 1 a 10: 55
+\end{ccode}
+
 \section{Comando while}
+
+O loop \textit{while} é útil quando você não sabe exatamente quantas iterações precisará.
+
+Sintaxe:
+
+\begin{ccode}
+  while (condição) {
+    // código a ser repetido
+  }
+\end{ccode}
+
+O bloco é repetido enquanto a condição for verdadeira.
+
+Exemplo:
+
+\begin{ccode}
+  int contador = 0;
+  while (contador < 5) {
+    printf("Contador: %d\n", contador);
+    contador++;
+  }
+\end{ccode}
+
+Este código imprime os números 0, 1, 2, 3, 4.
+
+\begin{quote}
+\textit{Cuidado com loops infinitos! Eles são pior que uma música do funk em um casamento.}
+\end{quote}
+
+Se você esquecer de atualizar a variável da condição, o loop nunca terminará. É tipo entrar em um filme de terror onde você fica preso na mesma cena para sempre:
+
+\begin{ccode}
+  int contador = 0;
+  while (contador < 5) {
+    printf("Contador: %d\n", contador);
+    // Esqueci de fazer contador++
+    // Loop infinito!
+  }
+\end{ccode}
+
+Exemplo prático com while:
+
+\begin{ccode}
+  int numero = 1;
+  while (numero <= 100) {
+    if (numero % 2 == 0) {
+      printf("%d é par\n", numero);
+    }
+    numero++;
+  }
+\end{ccode}
+
+Este código imprime todos os números pares de 1 a 100.
+
 \section{Comando do-while}
 
+O \textit{do-while} é o primo menos conhecido do \textit{while}, mas extremamente útil. É tipo aquela coisa que você faz uma vez com aquele amigo que você não gosta muito, mas depois nunca mais.
+
+Garante que o bloco execute AT LEAST uma vez, mesmo que a condição seja falsa inicialmente. É tipo: \say{primeiro você tenta, depois vê se faz sentido}.
+
+Sintaxe:
+
+\begin{ccode}
+  do {
+    // código a ser repetido (pelo menos uma vez!)
+  } while (condição);
+\end{ccode}
+
+Exemplo:
+
+\begin{ccode}
+  int numero = 10;
+  do {
+    printf("Número: %d\n", numero);
+    numero++;
+  } while (numero < 5);
+\end{ccode}
+
+Este código imprime \say{Número: 10} uma vez, mesmo que \textit{numero} (10) não seja menor que 5. É tipo uma festa que todo mundo odeia mas ainda é fiel a ela porque uma vez começou.
+
+Com \textit{while} normal, absolutamente nada seria impresso (porque desde o começo já sabia que era uma festa ruim).
+
+Uso comum de \textit{do-while} é em menus:
+
+\begin{ccode}
+  int opcao;
+  do {
+    printf("1. Opção 1\n");
+    printf("2. Opção 2\n");
+    printf("3. Sair\n");
+    printf("Escolha: ");
+    scanf("%d", &opcao);
+
+    if (opcao == 1) {
+      printf("Você escolheu opção 1\n");
+    } else if (opcao == 2) {
+      printf("Você escolheu opção 2\n");
+    }
+  } while (opcao != 3);
+\end{ccode}
+
+O menu é exibido, o usuário escolhe, e o menu é exibido novamente até o usuário escolher 3 (sair).
+
 \section{Controle de loops}
+
 \subsection{O comando break}
+
+O \textit{break} interrompe imediatamente a execução do loop.
+
+\begin{ccode}
+  for (int i = 0; i < 10; i++) {
+    if (i == 5) {
+      break;  // Sai do loop quando i for 5
+    }
+    printf("%d ", i);
+  }
+  // Imprime: 0 1 2 3 4
+\end{ccode}
+
 \subsection{O comando continue}
 
+O \textit{continue} pula para a próxima iteração do loop.
+
+\begin{ccode}
+  for (int i = 0; i < 10; i++) {
+    if (i % 2 == 1) {
+      continue;  // Pula números ímpares
+    }
+    printf("%d ", i);
+  }
+  // Imprime: 0 2 4 6 8
+\end{ccode}
+
+Outro exemplo:
+
+\begin{ccode}
+  for (int i = 1; i <= 10; i++) {
+    if (i == 5) {
+      printf("Pulei o 5\n");
+      continue;
+    }
+    printf("%d ", i);
+  }
+  // Imprime: 1 2 3 4 Pulei o 5
+  //          6 7 8 9 10
+\end{ccode}
+
 \section{Loops aninhados}
+
+Você pode colocar loops dentro de loops.
+
+Exemplo:
+
+\begin{ccode}
+  for (int i = 1; i <= 3; i++) {
+    for (int j = 1; j <= 3; j++) {
+      printf("%d ", i * j);
+    }
+    printf("\n");
+  }
+\end{ccode}
+
+Este código imprime:
+
+\begin{quote}
+  1 2 3
+  2 4 6
+  3 6 9
+\end{quote}
+
+Tabuada prática:
+
+\begin{ccode}
+  for (int tabuada = 1; tabuada <= 10; tabuada++) {
+    printf("Tabuada do %d:\n", tabuada);
+    for (int i = 1; i <= 10; i++) {
+      printf("%d x %d = %d\n", tabuada, i, tabuada * i);
+    }
+    printf("\n");
+  }
+\end{ccode}
+
+Loops aninhados são poderosos, mas cuidado: dois loops aninhados multiplicam o número de iterações. Três loops aninhados podem ser exponencialmente lentos.
+
 \section{Loops infinitos}
 
-Conversao.
+Às vezes você quer um loop que roda para sempre (ou até uma condição específica quebrar).
+
+\begin{ccode}
+  while (1) {
+    printf("Este loop roda para sempre!\n");
+  }
+\end{ccode}
+
+Ou:
+
+\begin{ccode}
+  for (;;) {
+    printf("Este também roda para sempre!\n");
+  }
+\end{ccode}
+
+Na prática, você combina com \textit{break}:
+
+\begin{ccode}
+  while (1) {
+    printf("Digite 0 para sair: ");
+    int entrada;
+    scanf("%d", &entrada);
+    if (entrada == 0) {
+      break;
+    }
+  }
+\end{ccode}
+
+Loops são fundamentais em programação. Com \textit{for}, \textit{while} e \textit{do-while}, você pode repetir operações tantas vezes quanto necessário. No próximo capítulo, aprenderemos sobre arrays, que frequentemente são iterados com loops.
 
 %------------------------------------------------
 

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{  }\PYG{k}{extern}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{ext1}\PYG{p}{[}\PYG{l+m+mi}{32}\PYG{p}{];}
+\PYG{+w}{  }\PYG{k}{extern}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{ext2}\PYG{p}{[];}
+\end{Verbatim}
