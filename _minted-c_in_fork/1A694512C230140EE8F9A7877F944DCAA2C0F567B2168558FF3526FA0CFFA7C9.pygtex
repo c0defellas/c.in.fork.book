@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{multiplicador}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{4}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{multiplicando}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{5}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{produto}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{multiplicador}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{multiplicando}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// produto = 20}
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{  }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{inicialização}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{condição}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{incremento}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{// código a ser repetido}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
