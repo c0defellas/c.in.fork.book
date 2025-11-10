@@ -1,7 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{chovendo}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}
-\PYG{+w}{  }\PYG{o}{!}\PYG{n}{chovendo}\PYG{+w}{  }\PYG{c+c1}{// false (inverte 1)}
-
-\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{ensolarado}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
-\PYG{+w}{  }\PYG{o}{!}\PYG{n}{ensolarado}\PYG{+w}{  }\PYG{c+c1}{// true (inverte 0)}
-\end{Verbatim}

@@ -1,4 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{+w}{  }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{velocidade\PYGZus{}luz}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{299792458}\PYG{p}{;}
-\PYG{+w}{  }\PYG{n}{velocidade\PYGZus{}luz}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{300000}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// ERRO!}
-\end{Verbatim}

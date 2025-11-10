@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{+w}{  }\PYG{p}{(}\PYG{n}{condição}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{n}{valor\PYGZus{}se\PYGZus{}verdadeiro}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{valor\PYGZus{}se\PYGZus{}falso}
-\end{Verbatim}

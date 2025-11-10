@@ -1,6 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{;}\PYG{+w}{           }\PYG{c+c1}{// Muito vago (que até matématicos diriam: \PYGZdq{}cara, isso é genérico demais\PYGZdq{})}
-\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{DadosDoSistema}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// Muito genérico (parece que você está programando uma ficção científica)}
-\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{a1b2c3}\PYG{p}{;}\PYG{+w}{      }\PYG{c+c1}{// Ilegível (parece um código para desativar uma bomba, mas apenas para confundir)}
-\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{meioEstranho}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// Ninguém sabe o que você estava pensando}
-\end{Verbatim}

@@ -1,6 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{contador}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
-\PYG{+w}{  }\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{altura}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mf}{1.80}\PYG{p}{;}
-\PYG{+w}{  }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{n}{inicial}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}J\PYGZsq{}}\PYG{p}{;}
-\PYG{+w}{  }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{resultado}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mf}{3.14}\PYG{p}{;}
-\end{Verbatim}

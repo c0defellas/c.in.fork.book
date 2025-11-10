@@ -1,9 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{+w}{  }\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}stdio.h\PYGZgt{}}\PYG{c+c1}{    // 1. Inclui biblioteca}
-
-\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{(}\PYG{k+kt}{void}\PYG{p}{)}\PYG{+w}{        }\PYG{c+c1}{// 2. Função principal}
-\PYG{+w}{  }\PYG{p}{\PYGZob{}}\PYG{+w}{                     }\PYG{c+c1}{// 3. Abre bloco}
-\PYG{+w}{    }\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Olá, eu sou um programador C!}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}\PYG{+w}{  }\PYG{c+c1}{// 4. Imprime texto}
-\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{           }\PYG{c+c1}{// 5. Retorna sucesso}
-\PYG{+w}{  }\PYG{p}{\PYGZcb{}}\PYG{+w}{                     }\PYG{c+c1}{// 6. Fecha bloco}
-\end{Verbatim}
